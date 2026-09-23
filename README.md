@@ -4,6 +4,8 @@
 
 携帯・PC共通の操作盤は [Google Drive の AI-Workspace](https://drive.google.com/drive/folders/11X7_n1n0QnGweVwFUyo9riTS7X0LPgBI) です。ローカルは実装と検証、ChatGPT Work CloudはPC停止中の調査・監視を担当します。
 
+コードと再現手順は非公開GitHubリポジトリ `Mitsuru-sato37/ai-workspace-foundation` で履歴管理します。
+
 ## 採用した仕組み
 
 - Python 3.12

@@ -20,4 +20,4 @@ system_brief_id = "1baKiBJ1h2Z9qQQ8D-6K65vShqHakHjoaBDYiAUfbwx0"
 
 [integrations.github]
 enabled = true
-repository = ""
+repository = "Mitsuru-sato37/ai-workspace-foundation"

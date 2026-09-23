@@ -50,6 +50,8 @@ uv 0.12.18を公式Astralインストーラーでユーザー領域へ導入し�
 
 Git初期化後は、サンドボックスと実ユーザーで `.git` の所有者判定が逆になり、Gitのdubious ownership安全機構が停止させた。グローバルな `safe.directory` は変更せず、各Gitコマンドにこのリポジトリの絶対パスだけを指定した。除外確認では `git check-ignore -v` が否定規則も成功終了するため `.gitkeep` を誤判定したので、`git status --untracked-files=all` の実体件数へ切り替えた。ステージ対象24件、禁止対象0件を確認した後、既存文書2件の末尾余分空行を修正した。
 
+GitHubに非公開リポジトリ `Mitsuru-sato37/ai-workspace-foundation` を作成し、画面上の `Private` 表示と空リポジトリ用HTTPS URLを確認した。ローカル設定へ同じリポジトリ名を反映し、doctorでGitHub接続先が設定済みになることを確認してからpushする。
+
 ## 次回の開始地点
 
 uvを導入して `uv.lock` を生成し、同一のdoctorとテストが隔離環境でも通ることを確認する。その後、非公開GitHubリポジトリを作り、`config/project.toml` の接続先を確定する。どちらもインストールまたは外部作成を伴うため、実行前に利用者の確認を取る。
