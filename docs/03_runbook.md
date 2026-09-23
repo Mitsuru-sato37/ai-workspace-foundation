@@ -52,6 +52,8 @@ Git初期化後は、サンドボックスと実ユーザーで `.git` の所有
 
 GitHubに非公開リポジトリ `Mitsuru-sato37/ai-workspace-foundation` を作成し、画面上の `Private` 表示と空リポジトリ用HTTPS URLを確認した。ローカル設定へ同じリポジトリ名を反映し、doctorでGitHub接続先が設定済みになることを確認してからpushする。
 
+GitHub CLI認証後、ローカルHEADと `refs/heads/main` を別々に読み、SHA一致とahead/behind `0/0` を確認した。GitHubプラグインでは当初リポジトリ一覧0件・個別取得404だった。GitHub設定を確認すると、`ChatGPT Codex Connector` はOAuth認証済みだが、GitHub Appとしてはアカウントへ未インストールだった。全リポジトリ許可は使わず、`Mitsuru-sato37/ai-workspace-foundation` の1件だけを選んでインストールした。再取得では、一覧1件、`visibility=private`、default branch `main`、README本文の取得成功を個別に確認した。
+
 ## 次回の開始地点
 
 uvを導入して `uv.lock` を生成し、同一のdoctorとテストが隔離環境でも通ることを確認する。その後、非公開GitHubリポジトリを作り、`config/project.toml` の接続先を確定する。どちらもインストールまたは外部作成を伴うため、実行前に利用者の確認を取る。
