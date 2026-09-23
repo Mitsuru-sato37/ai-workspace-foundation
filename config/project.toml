@@ -1,0 +1,23 @@
+[project]
+name = "local-pipeline"
+timezone = "Asia/Tokyo"
+
+[paths]
+raw = "data/raw"
+processed = "data/processed"
+outputs = "outputs"
+work = "work"
+
+[execution]
+fail_on_missing_input = true
+write_run_manifest = true
+
+[integrations.google_drive]
+enabled = true
+root_folder_name = "AI-Workspace"
+root_folder_id = "11X7_n1n0QnGweVwFUyo9riTS7X0LPgBI"
+system_brief_id = "1baKiBJ1h2Z9qQQ8D-6K65vShqHakHjoaBDYiAUfbwx0"
+
+[integrations.github]
+enabled = true
+repository = ""
