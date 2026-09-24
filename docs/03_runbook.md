@@ -54,6 +54,18 @@ GitHubに非公開リポジトリ `Mitsuru-sato37/ai-workspace-foundation` を�
 
 GitHub CLI認証後、ローカルHEADと `refs/heads/main` を別々に読み、SHA一致とahead/behind `0/0` を確認した。GitHubプラグインでは当初リポジトリ一覧0件・個別取得404だった。GitHub設定を確認すると、`ChatGPT Codex Connector` はOAuth認証済みだが、GitHub Appとしてはアカウントへ未インストールだった。全リポジトリ許可は使わず、`Mitsuru-sato37/ai-workspace-foundation` の1件だけを選んでインストールした。再取得では、一覧1件、`visibility=private`、default branch `main`、README本文の取得成功を個別に確認した。
 
+## 2026-09-24: クラウド実行へ方針を修正
+
+利用者の目的は、PC停止中も携帯から依頼と結果確認ができることだった。初期の「ローカルで実装・検証し、調査だけクラウド」という方針では、この目的を満たさない。公式仕様を確認し、Codex cloudはGitHubリポジトリからクラウド環境を作って実装・検証でき、ChatGPT Work CloudはPC停止中も継続できることを確認した。
+
+`AGENTS.md`、README、構成文書、TOMLの実行設定をクラウド実行へ修正した。Python・uv・pytestはCodex cloudでの再現手段として残す。`project doctor`は`execution_mode=cloud`と`local_required=false`を表示する。過去のローカル作業は失敗と変更の経緯を追えるよう、この文書に残す。
+
+Google Driveの`00_System Brief`も読み直すと、Codex Remoteを実装の担当とし、GitHubリポジトリが0件という古い記述が残っていた。該当6箇所を文単位で更新し、各箇所の置換件数が1件、再取得後の旧記述が0件、リスト項目が20件のままであることを確認した。既存Google Docの初回読み取り用補助スクリプトはWindowsの絶対パスに非対応で停止したため、コネクタの全文取得で文書構造を確認してから対象行のみを更新した。
+
+検証時、通常の`uv`コマンドはPATH未登録で失敗した。実体の`uv.exe`は見つかったが、ユーザーキャッシュへのアクセス権がなく、このサンドボックスからは実行できなかった。既存`.venv`も元のPython実行ファイルを参照して起動できなかった。代わりにアプリ同梱Pythonで標準ライブラリの単体テストを実行した。この代替はクラウド環境の検証にはならないため、未完了として扱う。
+
+テストは変更前に`execution_mode`欠落とローカル実行の誤受理を検出した。修正後は4件が通過し、Ruffは0件、構成検査は12対象を確認した。TOMLは`pyproject.toml`、`config/project.toml`、`uv.lock`を個別にパースし、プロジェクト名がすべて`ai-workspace-foundation`で一致することを確認した。`project doctor`は4保存先とクラウド実行設定を読み取った。ただし、これらはローカルの静的・単体検査であり、クラウド稼働の証拠ではない。
+
 ## 次回の開始地点
 
-uvを導入して `uv.lock` を生成し、同一のdoctorとテストが隔離環境でも通ることを確認する。その後、非公開GitHubリポジトリを作り、`config/project.toml` の接続先を確定する。どちらもインストールまたは外部作成を伴うため、実行前に利用者の確認を取る。
+GitHubの最新コードをCodex cloud環境に接続し、`uv sync`、`uv run project doctor`、`uv run pytest`をクラウドで実行する。次にChatGPT Work Cloudの小さなタスクを携帯から確認し、PC停止中も継続することを検証する。両方の実行結果を確認するまで、クラウド移行完了とは報告しない。

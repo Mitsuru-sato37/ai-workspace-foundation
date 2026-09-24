@@ -1,8 +1,8 @@
-# Local Pipeline
+# AI Workspace Foundation
 
-題材に依存しない、ローカル実行用の最小Pythonプロジェクトです。処理内容を決める前に、実行環境、設定、検証、保存先の境界だけを固定します。
+題材に依存しない、Codex cloudで実行する最小Pythonプロジェクトです。処理内容を決める前に、実行環境、設定、検証、保存先の境界だけを固定します。
 
-携帯・PC共通の操作盤は [Google Drive の AI-Workspace](https://drive.google.com/drive/folders/11X7_n1n0QnGweVwFUyo9riTS7X0LPgBI) です。ローカルは実装と検証、ChatGPT Work CloudはPC停止中の調査・監視を担当します。
+携帯・PCのChatGPT/Codex画面から指示と結果確認を行います。[Google Drive の AI-Workspace](https://drive.google.com/drive/folders/11X7_n1n0QnGweVwFUyo9riTS7X0LPgBI) は資料の正本です。実装と検証はCodex cloud、PC停止中の調査・監視はChatGPT Work Cloudで実行します。
 
 コードと再現手順は非公開GitHubリポジトリ `Mitsuru-sato37/ai-workspace-foundation` で履歴管理します。
 
@@ -17,7 +17,7 @@
 
 ## 初回セットアップ
 
-uvは公式Astralインストーラーで導入済みです。新しい環境では次だけで環境を復元します。
+Codex cloudのGitHub接続環境でこのリポジトリを選び、次のコマンドで環境を復元・検証します。ローカルPCにuvを入れることは運用上の要件ではありません。
 
 ```powershell
 uv sync
@@ -25,19 +25,19 @@ uv run project doctor
 uv run pytest
 ```
 
-`uv.lock` は生成済みで、Git管理します。
+`uv.lock` は生成済みで、Git管理します。現時点ではCodex cloud環境での実行確認が未了です。PC停止中の継続実行を確認するまでは、クラウド移行完了とは扱いません。
 
 ## ディレクトリ
 
 ```text
 config/           秘密でない設定
-data/raw/         取得原本（上書きしない）
+data/raw/         クラウド処理用の原本コピー（上書きしない）
 data/processed/   再生成可能な加工物
 docs/             判断と再現手順
 outputs/          利用者向け成果物
 src/project_core/ 実装
 tests/            自動テスト
-work/             一時ファイルと実行記録
+work/             クラウド作業中の一時ファイルと実行記録
 ```
 
 競馬関連の既存文書は `docs/README.md` に示す保留資料で、現在の初期設定には適用しません。

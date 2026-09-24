@@ -37,6 +37,8 @@ class Settings:
     name: str
     timezone: str
     paths: ProjectPaths
+    execution_mode: str
+    local_required: bool
     fail_on_missing_input: bool
     write_run_manifest: bool
     google_drive: GoogleDriveSettings
@@ -89,6 +91,13 @@ def load_settings(config_path: Path, root: Path | None = None) -> Settings:
     drive = _table(integrations, "google_drive")
     github = _table(integrations, "github")
 
+    execution_mode = _text(execution, "mode")
+    if execution_mode != "cloud":
+        raise SettingsError("execution mode must be cloud")
+    local_required = _boolean(execution, "local_required")
+    if local_required:
+        raise SettingsError("local_required must be false")
+
     return Settings(
         name=_text(project, "name"),
         timezone=_text(project, "timezone"),
@@ -98,6 +107,8 @@ def load_settings(config_path: Path, root: Path | None = None) -> Settings:
             outputs=_inside(root, _text(paths, "outputs")),
             work=_inside(root, _text(paths, "work")),
         ),
+        execution_mode=execution_mode,
+        local_required=local_required,
         fail_on_missing_input=_boolean(execution, "fail_on_missing_input"),
         write_run_manifest=_boolean(execution, "write_run_manifest"),
         google_drive=GoogleDriveSettings(

@@ -1,5 +1,5 @@
 [project]
-name = "local-pipeline"
+name = "ai-workspace-foundation"
 timezone = "Asia/Tokyo"
 
 [paths]
@@ -9,6 +9,8 @@ outputs = "outputs"
 work = "work"
 
 [execution]
+mode = "cloud"
+local_required = false
 fail_on_missing_input = true
 write_run_manifest = true
 

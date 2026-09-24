@@ -10,9 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from project_core.settings import SettingsError, load_settings
 
 
-def config_text(raw_path: str = "data/raw", include_execution: bool = True) -> str:
-    execution = """
+def config_text(
+    raw_path: str = "data/raw", include_execution: bool = True, mode: str = "cloud"
+) -> str:
+    execution = f"""
 [execution]
+mode = "{mode}"
+local_required = false
 fail_on_missing_input = true
 write_run_manifest = true
 """ if include_execution else ""
@@ -51,6 +55,8 @@ class SettingsTests(unittest.TestCase):
         settings = self.load(config_text())
         self.assertEqual(settings.name, "test-project")
         self.assertEqual(settings.timezone, "Asia/Tokyo")
+        self.assertEqual(settings.execution_mode, "cloud")
+        self.assertFalse(settings.local_required)
         self.assertEqual(settings.google_drive.root_folder_name, "AI-Workspace")
         self.assertTrue(settings.google_drive.enabled)
         self.assertEqual(settings.github.repository, "")
@@ -62,6 +68,10 @@ class SettingsTests(unittest.TestCase):
     def test_rejects_missing_table(self) -> None:
         with self.assertRaisesRegex(SettingsError, r"\[execution\] table is required"):
             self.load(config_text(include_execution=False))
+
+    def test_rejects_local_execution(self) -> None:
+        with self.assertRaisesRegex(SettingsError, "execution mode must be cloud"):
+            self.load(config_text(mode="local"))
 
 
 if __name__ == "__main__":

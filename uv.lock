@@ -21,7 +21,7 @@ wheels = [
 ]
 
 [[package]]
-name = "local-pipeline"
+name = "ai-workspace-foundation"
 version = "0.1.0"
 source = { editable = "." }
 

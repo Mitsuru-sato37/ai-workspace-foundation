@@ -26,6 +26,8 @@ def doctor(root: Path) -> int:
         "status": "ok" if not missing else "ng",
         "project": settings.name,
         "timezone": settings.timezone,
+        "execution_mode": settings.execution_mode,
+        "local_required": settings.local_required,
         "paths_checked": len(paths),
         "missing_paths": missing,
         "google_drive": {
