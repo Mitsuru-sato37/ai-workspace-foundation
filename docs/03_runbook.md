@@ -66,6 +66,8 @@ Google Driveの`00_System Brief`も読み直すと、Codex Remoteを実装の担
 
 テストは変更前に`execution_mode`欠落とローカル実行の誤受理を検出した。修正後は4件が通過し、Ruffは0件、構成検査は12対象を確認した。TOMLは`pyproject.toml`、`config/project.toml`、`uv.lock`を個別にパースし、プロジェクト名がすべて`ai-workspace-foundation`で一致することを確認した。`project doctor`は4保存先とクラウド実行設定を読み取った。ただし、これらはローカルの静的・単体検査であり、クラウド稼働の証拠ではない。
 
+Codex cloudの環境作成前試験では、Python 3.12.13と`uv sync --frozen`による7パッケージの導入まで成功した。しかし`uv run project doctor`が`missing_paths=["outputs"]`で失敗した。Gitは空の`outputs/`を保存しないのに、自己診断がそのディレクトリを必須としていたため。`.gitignore`に`!outputs/.gitkeep`を加えて空フォルダを保持する修正を行い、クラウドで再試験する。
+
 ## 次回の開始地点
 
 GitHubの最新コードをCodex cloud環境に接続し、`uv sync`、`uv run project doctor`、`uv run pytest`をクラウドで実行する。次にChatGPT Work Cloudの小さなタスクを携帯から確認し、PC停止中も継続することを検証する。両方の実行結果を確認するまで、クラウド移行完了とは報告しない。

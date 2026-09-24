@@ -9,5 +9,6 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 outputs/*
+!outputs/.gitkeep
 work/*
 !work/.gitkeep
