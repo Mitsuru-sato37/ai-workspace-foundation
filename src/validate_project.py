@@ -19,6 +19,7 @@ REQUIRED_DOCS = (
     "docs/README.md",
     "docs/03_runbook.md",
     "docs/10_architecture.md",
+    "docs/11_idea_intake.md",
 )
 
 
