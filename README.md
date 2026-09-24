@@ -25,7 +25,7 @@ uv run project doctor
 uv run pytest
 ```
 
-`uv.lock` は生成済みで、Git管理します。現時点ではCodex cloud環境での実行確認が未了です。PC停止中の継続実行を確認するまでは、クラウド移行完了とは扱いません。
+`uv.lock` は生成済みで、Git管理します。Codex cloud環境`ai-workspace-foundation`で依存関係復元、自己診断、4件のテストを確認済みです。携帯からの操作とPC停止中の継続は、実機での確認がまだ必要です。
 
 ## ディレクトリ
 

@@ -68,6 +68,8 @@ Google Driveの`00_System Brief`も読み直すと、Codex Remoteを実装の担
 
 Codex cloudの環境作成前試験では、Python 3.12.13と`uv sync --frozen`による7パッケージの導入まで成功した。しかし`uv run project doctor`が`missing_paths=["outputs"]`で失敗した。Gitは空の`outputs/`を保存しないのに、自己診断がそのディレクトリを必須としていたため。`.gitignore`に`!outputs/.gitkeep`を加えて空フォルダを保持する修正を行い、クラウドで再試験する。
 
+修正後のGitHubコミット`0ebb4cc8a2c762abda3cd11ed0caa52d0c6928af`をCodex cloud環境`ai-workspace-foundation`で取得した。自動セットアップはPython 3.12.13と`uv sync --frozen`で7パッケージを導入し、`uv run project doctor`は`status=ok`、`execution_mode=cloud`、`local_required=false`、4保存先、欠落0を返した。別の新しい試験端末で`uv run pytest`を実行し、4件が通過した。これでコードのクラウド実行は確認できた。携帯からの実操作とPC停止中の継続は、端末を停止する実機試験が未実施のため別に確認する。
+
 ## 次回の開始地点
 
-GitHubの最新コードをCodex cloud環境に接続し、`uv sync`、`uv run project doctor`、`uv run pytest`をクラウドで実行する。次にChatGPT Work Cloudの小さなタスクを携帯から確認し、PC停止中も継続することを検証する。両方の実行結果を確認するまで、クラウド移行完了とは報告しない。
+携帯からCodex cloud環境とChatGPT Work Cloudへアクセスし、PC停止中に依頼・結果確認を実機で検証する。監視対象と頻度が決まったらWork Cloudで定期タスクを作る。クラウド環境でのコード実行は確認済みだが、携帯・PC停止中の操作は確認まで完了と報告しない。
