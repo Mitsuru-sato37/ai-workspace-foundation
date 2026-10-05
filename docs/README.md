@@ -4,6 +4,7 @@
 
 - `10_architecture.md`: 題材に依存しない実行方式の決定
 - `11_idea_intake.md`: 思いつきの保存と実行担当の判定手順
+- `12_new_repository_bootstrap.md`: 新規GitHubリポジトリをWork/Codexで初期化するときの標準
 - `03_runbook.md`: 初期化と検証の履歴
 
 ## 保留資料
