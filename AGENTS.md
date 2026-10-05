@@ -8,6 +8,7 @@
 7. 認証情報をGitHubへ保存しない。保留中の題材固有処理と無関係な領域には触れない。
 8. 外部送信・公開・購入・インストール・既存原本の上書きは、実行前に利用者の確認を取る。
 9. 利用者が将来やりたいことを思いつきとして伝えた場合は、Google Driveの`AI-Workspace/00_Inbox`を正本とするアイデアメモに残す。実行依頼へ変わった時点で、`docs/11_idea_intake.md`に従ってCodex cloud、ChatGPT Work Cloud、人の操作に担当を分ける。
+10. 新しいGitHubリポジトリを作成・初期化するときは、`docs/12_new_repository_bootstrap.md` を必ず適用し、`templates/repository/` を基準に `AGENTS.md`、`docs/SPEC.md`、`docs/STATUS.md` を最初から作る。Workがリポジトリの中身を作成する場合も同じ。これらが既定ブランチに存在し、別PCから再開できる状態になるまで初期化完了としない。
 
 # 作業規約
 
