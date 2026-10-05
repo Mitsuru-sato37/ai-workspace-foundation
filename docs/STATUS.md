@@ -21,12 +21,13 @@ Update this field at the end of each meaningful development session.
 
 ## Completed in latest handoff
 
+- Added a new-repository bootstrap standard and reusable templates so Work/Codex initializes future repositories with cross-PC handoff files from the start.
 - Added fixed `docs/SPEC.md` and `docs/STATUS.md` entry points for cross-PC Codex recovery.
 - Standardized the rule that Codex chat history is non-authoritative and handoff state must be committed and pushed.
 
 ## Next
 
-Use this file for future handoffs. When implementation work starts, replace this section with the concrete next task.
+Use `docs/12_new_repository_bootstrap.md` and `templates/repository/` whenever Work/Codex initializes a newly created repository. For ordinary work in this repository, replace this section with the concrete next task.
 
 ## Verification
 
