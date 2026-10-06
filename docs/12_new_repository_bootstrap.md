@@ -8,11 +8,13 @@
 
 ## 初期化完了条件
 
-新規リポジトリの初期化は、少なくとも次の3ファイルが既定ブランチに存在するまで完了扱いにしない。
+新規リポジトリの初期化は、少なくとも次の5ファイルが既定ブランチに存在するまで完了扱いにしない。
 
 - `AGENTS.md`
 - `docs/SPEC.md`
 - `docs/STATUS.md`
+- `git-status.cmd`
+- `scripts/git-sync-status.ps1`
 
 必要に応じて `README.md`、`.gitignore`、プロジェクト固有の仕様書や進捗文書も作る。
 
@@ -24,7 +26,7 @@
 4. `AGENTS.md` に、作業開始・終了・PC間引き継ぎのルールを残す。
 5. `docs/SPEC.md` を固定の仕様入口にする。詳細仕様が別ファイルにある場合は、重複記載せずそこへの索引にする。
 6. `docs/STATUS.md` を固定の引き継ぎ入口にする。既存の `PROGRESS.md` 等が正本ならそこへの索引にする。
-7. 実装を始める前に、3ファイルが既定ブランチまたは作業ブランチに存在することを確認する。
+7. 実装を始める前に、上記5ファイルが既定ブランチまたは作業ブランチに存在することを確認する。
 8. 初期作業が完了したら、変更をcommit/pushし、別PCがGitHubだけを見て再開できる状態を確認する。
 
 ## 固定の読み順
@@ -61,5 +63,7 @@ Codexのチャット履歴は正本にしない。
 - `templates/repository/AGENTS.md`
 - `templates/repository/docs/SPEC.md`
 - `templates/repository/docs/STATUS.md`
+- `templates/repository/git-status.cmd`
+- `templates/repository/scripts/git-sync-status.ps1`
 
 新規リポジトリの内容をWorkが作る場合も、このテンプレートを適用する。

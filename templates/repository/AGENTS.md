@@ -39,3 +39,14 @@ Never leave the only copy of important work in uncommitted local files, terminal
 ## Project-specific rules
 
 Replace this section with the project's actual implementation, product, security, and verification rules. Do not leave generic placeholders once implementation begins.
+
+
+## Quick Git sync check
+
+On Windows, run this from the repository root at the start of work and before handing work to another PC:
+
+```powershell
+.\git-status.cmd
+```
+
+It fetches `origin` and reports the current branch, uncommitted changes, whether pull or push is needed, and whether the current feature branch is merged into `main`. If GitHub CLI (`gh`) is available, PR state is used for a more precise merge result; otherwise Git history/patch equivalence is used as a fallback.
