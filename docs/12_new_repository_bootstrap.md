@@ -13,6 +13,8 @@
 - `AGENTS.md`
 - `docs/SPEC.md`
 - `docs/STATUS.md`
+- `git-status.cmd`
+- `scripts/git-sync-status.ps1`
 
 必要に応じて `README.md`、`.gitignore`、プロジェクト固有の仕様書や進捗文書も作る。
 
@@ -61,5 +63,7 @@ Codexのチャット履歴は正本にしない。
 - `templates/repository/AGENTS.md`
 - `templates/repository/docs/SPEC.md`
 - `templates/repository/docs/STATUS.md`
+- `templates/repository/git-status.cmd`
+- `templates/repository/scripts/git-sync-status.ps1`
 
 新規リポジトリの内容をWorkが作る場合も、このテンプレートを適用する。
