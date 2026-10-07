@@ -33,7 +33,7 @@ work = "work"
 {execution}
 [integrations.google_drive]
 enabled = true
-root_folder_name = "AI-Workspace"
+root_folder_name = "test-drive-folder"
 root_folder_id = "folder-id"
 system_brief_id = "document-id"
 
@@ -57,9 +57,30 @@ class SettingsTests(unittest.TestCase):
         self.assertEqual(settings.timezone, "Asia/Tokyo")
         self.assertEqual(settings.execution_mode, "cloud")
         self.assertFalse(settings.local_required)
-        self.assertEqual(settings.google_drive.root_folder_name, "AI-Workspace")
+        self.assertEqual(settings.google_drive.root_folder_name, "test-drive-folder")
         self.assertTrue(settings.google_drive.enabled)
         self.assertEqual(settings.github.repository, "")
+
+    def test_disabled_drive_accepts_empty_folder_references(self) -> None:
+        text = config_text().replace(
+            'enabled = true\nroot_folder_name = "test-drive-folder"\n'
+            'root_folder_id = "folder-id"\nsystem_brief_id = "document-id"',
+            'enabled = false\nroot_folder_name = ""\n'
+            'root_folder_id = ""\nsystem_brief_id = ""',
+        )
+        settings = self.load(text)
+        self.assertFalse(settings.google_drive.enabled)
+        self.assertEqual(settings.google_drive.root_folder_name, "")
+        self.assertEqual(settings.google_drive.root_folder_id, "")
+        self.assertEqual(settings.google_drive.system_brief_id, "")
+
+    def test_enabled_drive_requires_folder_references(self) -> None:
+        text = config_text().replace(
+            'root_folder_id = "folder-id"\nsystem_brief_id = "document-id"',
+            'root_folder_id = ""\nsystem_brief_id = ""',
+        )
+        with self.assertRaisesRegex(SettingsError, "root_folder_id must be a non-empty string"):
+            self.load(text)
 
     def test_rejects_path_outside_project(self) -> None:
         with self.assertRaisesRegex(SettingsError, "escapes project root"):

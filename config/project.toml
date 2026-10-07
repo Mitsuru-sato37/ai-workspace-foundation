@@ -15,10 +15,10 @@ fail_on_missing_input = true
 write_run_manifest = true
 
 [integrations.google_drive]
-enabled = true
-root_folder_name = "AI-Workspace"
-root_folder_id = "11X7_n1n0QnGweVwFUyo9riTS7X0LPgBI"
-system_brief_id = "1baKiBJ1h2Z9qQQ8D-6K65vShqHakHjoaBDYiAUfbwx0"
+enabled = false
+root_folder_name = ""
+root_folder_id = ""
+system_brief_id = ""
 
 [integrations.github]
 enabled = true
