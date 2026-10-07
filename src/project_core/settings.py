@@ -98,6 +98,8 @@ def load_settings(config_path: Path, root: Path | None = None) -> Settings:
     if local_required:
         raise SettingsError("local_required must be false")
 
+    drive_enabled = _boolean(drive, "enabled")
+
     return Settings(
         name=_text(project, "name"),
         timezone=_text(project, "timezone"),
@@ -112,10 +114,10 @@ def load_settings(config_path: Path, root: Path | None = None) -> Settings:
         fail_on_missing_input=_boolean(execution, "fail_on_missing_input"),
         write_run_manifest=_boolean(execution, "write_run_manifest"),
         google_drive=GoogleDriveSettings(
-            enabled=_boolean(drive, "enabled"),
-            root_folder_name=_text(drive, "root_folder_name"),
-            root_folder_id=_text(drive, "root_folder_id"),
-            system_brief_id=_text(drive, "system_brief_id"),
+            enabled=drive_enabled,
+            root_folder_name=_text(drive, "root_folder_name", allow_empty=not drive_enabled),
+            root_folder_id=_text(drive, "root_folder_id", allow_empty=not drive_enabled),
+            system_brief_id=_text(drive, "system_brief_id", allow_empty=not drive_enabled),
         ),
         github=GitHubSettings(
             enabled=_boolean(github, "enabled"),

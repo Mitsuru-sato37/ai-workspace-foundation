@@ -1,14 +1,8 @@
 # 新規リポジトリ初期化標準
 
-## 目的
+## 目的と完了条件
 
-新しいGitHubリポジトリを作成した直後から、PCやCodexの会話履歴に依存せず、別PC・別セッションで作業を再開できる状態にする。
-
-この手順は、利用者が新規リポジトリを作成し、その中身をChatGPT Work / Codexに作成させる場合の標準とする。
-
-## 初期化完了条件
-
-新規リポジトリの初期化は、少なくとも次の7ファイルが既定ブランチに存在するまで完了扱いにしない。
+`Mitsuru-sato37` 配下に新しい独立アプリ・システムのGitHubリポジトリを作るとき、共通の開発運用ルールを一度の操作で適用できるようにする。初期構成の正本は `templates/repository/` とし、次の7ファイルが対象リポジトリに存在することを初期化完了条件とする。
 
 - `AGENTS.md`
 - `docs/SPEC.md`
@@ -18,20 +12,46 @@
 - `git-status.cmd`
 - `scripts/git-sync-status.ps1`
 
-必要に応じて `README.md`、`.gitignore`、プロジェクト固有の仕様書や進捗文書も作る。
+## Windowsでの一括適用
 
-## Work / Codex が新規リポジトリを作るとき
+1. 新規GitHubリポジトリを作成してPCへcloneする。
+2. `ai-workspace-foundation` もcloneし、両方のcloneをPC上に置く。
+3. PowerShellから次のコマンドを一度実行する。パスは実際の保存先に置き換える。
 
-1. 既存リポジトリや関連資料がないか確認する。
-2. `templates/repository/` を初期構成の基準として読む。
-3. テンプレートをそのまま複製せず、プロジェクト名・目的・技術・検証方法・正本となる仕様書に合わせて調整する。
-4. `AGENTS.md` に、作業開始・終了・PC間引き継ぎのルールを残す。
-5. `docs/SPEC.md` を固定の仕様入口にする。詳細仕様が別ファイルにある場合は、重複記載せずそこへの索引にする。
-6. `docs/STATUS.md` を固定の引き継ぎ入口にする。既存の `PROGRESS.md` 等が正本ならそこへの索引にする。
-7. `docs/DEBUG_STANDARD.md` を共通デバッグ基準、`docs/DEBUG_MATRIX.md` をプロジェクト固有の検証台帳として置く。実装が進んだらマトリクスの汎用行を実際の主要フロー・境界値・異常系へ更新する。
-8. test / typecheck / lint / build の実コマンドが確定したら `docs/DEBUG_MATRIX.md` に記録し、可能ならPR時に自動実行するCIを追加する。
-9. 実装を始める前に、上記7ファイルが既定ブランチまたは作業ブランチに存在することを確認する。
-10. 初期作業が完了したら、変更をcommit/pushし、別PCがGitHubだけを見て再開・総合デバッグできる状態を確認する。
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File 'C:\path\to\ai-workspace-foundation\scripts\initialize-repository.ps1' -RepositoryPath 'C:\path\to\new-repository'
+```
+
+スクリプトは `templates/repository/` から対象ファイルを適用し、最後に `verify-repository-bootstrap.ps1` を実行する。必須ファイルが不足していれば不足名を表示し、非成功終了する。
+
+対象はローカルGit cloneとする。既存ファイルは既定で上書きせず、`PRESERVED` と表示する。既存内容をテンプレートと比較するには `-ExistingFileAction Diff` を使う。置き換えると決めたファイルだけを更新する場合に限り、`-ExistingFileAction Overwrite` を明示する。
+
+完了条件だけを再確認する場合:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File 'C:\path\to\ai-workspace-foundation\scripts\verify-repository-bootstrap.ps1' -RepositoryPath 'C:\path\to\new-repository'
+```
+
+この方法はGitHub CLIの認証やAPI書き込みを必要としない。初期化後に対象cloneで `git status` を確認し、内容をプロジェクト固有の目的に合わせて調整してからcommit/pushする。
+
+## 初期化ツールの検証
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test-repository-bootstrap.ps1
+```
+
+検証では、必須ファイルがない状態での非成功終了と不足名の表示、完全な初期化後の成功、適用した7ファイルとテンプレート正本のSHA-256一致、既存ファイルの既定保持、差分表示、明示上書きを確認する。
+
+## Codex / Workが新規Repoの内容を作るとき
+
+1. 既存リポジトリや関連資料を確認する。
+2. `templates/repository/` の7ファイルを対象Repoへ適用する。可能なら上記スクリプトを使う。
+3. 既存ファイルがある場合は既定動作で保持し、差分を確認して明示的に処理する。
+4. プロジェクト名・目的・技術・検証方法に合わせて内容を調整する。
+5. `docs/SPEC.md` を仕様の固定入口、`docs/STATUS.md` を引き継ぎの固定入口にする。
+6. `docs/DEBUG_STANDARD.md` は共通デバッグ基準、`docs/DEBUG_MATRIX.md` はプロジェクト固有の検証台帳として使う。
+7. 7ファイルの存在確認に成功するまで初期化を完了扱いにしない。
+8. 初期作業をcommit/pushし、別PCからGitHubだけで再開できる状態にする。
 
 ## 固定の読み順
 
@@ -44,32 +64,7 @@
 
 Codexのチャット履歴は正本にしない。
 
-## STATUSに最低限残すもの
-
-- 現在の作業ブランチ
-- 完了したこと
-- 次にやること
-- 実行した検証
-- ブロッカー / 外部依存
-- ユーザー判断待ちがあればその内容
-
 ## 既存プロジェクト固有文書との関係
 
-すでに `docs/PRODUCT_SPEC.md`、`docs/product-spec.md`、`docs/PROGRESS.md`、`docs/DECISIONS.md` 等がある場合、それらを消したり内容を二重管理したりしない。
+すでに `docs/PRODUCT_SPEC.md`、`docs/product-spec.md`、`docs/PROGRESS.md`、`docs/DECISIONS.md` 等がある場合、それらを消したり重複管理したりしない。`docs/SPEC.md` と `docs/STATUS.md` を固定入口にして、既存の正本へ誘導する。
 
-- `docs/SPEC.md`: 仕様の固定入口として正本へ誘導する。
-- `docs/STATUS.md`: 引き継ぎの固定入口として現在の進捗正本へ誘導する。
-
-## テンプレート
-
-初期構成の正本は次。
-
-- `templates/repository/AGENTS.md`
-- `templates/repository/docs/SPEC.md`
-- `templates/repository/docs/STATUS.md`
-- `templates/repository/docs/DEBUG_STANDARD.md`
-- `templates/repository/docs/DEBUG_MATRIX.md`
-- `templates/repository/git-status.cmd`
-- `templates/repository/scripts/git-sync-status.ps1`
-
-新規リポジトリの内容をWorkが作る場合も、このテンプレートを適用する。
