@@ -7,33 +7,34 @@ This file is the canonical handoff document for this repository.
 
 ## Current state
 
-- The repository is a cloud-first Python 3.12 workspace foundation.
-- Python environments and dependencies are managed with `uv`; validation uses `pytest` and Ruff.
-- GitHub is the source of truth for code and reproducible development state.
-- Google Drive is the source of truth for durable user materials defined by the workspace architecture.
-- Current active architecture and intake documents are indexed from `docs/SPEC.md`.
+- This repository provides shared development operations standards and reusable templates for repositories under `Mitsuru-sato37`.
+- GitHub repositories are the source of truth for code, specifications, and reproducible development state.
+- Google Drive is a supplementary area for images, videos, Sheets, and real data that should not live in GitHub.
+- New repository initialization uses `templates/repository/`, `scripts/initialize-repository.ps1`, and `scripts/verify-repository-bootstrap.ps1`.
 
 ## Active branch
 
-Update this field at the end of each meaningful development session.
+`feat/repository-bootstrap-automation`
 
-`debug-standard-template-2026-10-07`
+## Completed
 
-## Completed in latest handoff
-
-- Added reusable `docs/DEBUG_STANDARD.md` and `docs/DEBUG_MATRIX.md` templates for all future application repositories.
-- Added `docs/13_debugging_workflow.md` so a short request such as 「総合デバッグして」 maps to the same specification-first debug workflow.
-- Updated the repository template `AGENTS.md` so Codex performs baseline verification, scenario expansion, regression-test-first bug fixes, full re-verification, documentation, and GitHub handoff automatically.
-- Updated the new-repository bootstrap standard so debug standard/matrix files are required from repository initialization.
+- Updated the README to match this repository's shared-foundation role, public visibility, and current GitHub / Drive boundaries.
+- Added a Windows one-action initializer that copies only missing standard files by default and supports diff or explicit overwrite modes.
+- Added a required-file checker that lists missing files and exits unsuccessfully.
+- Added a self-test covering missing and complete repositories, exact template matches, preservation, diff, and explicit overwrite.
+- Updated the bootstrap runbook and foundation instructions.
 
 ## Next
 
-Merge this standardization change. After that, every newly initialized application repository should start with the debug standard and matrix. Existing repositories without them should adopt the templates at the start of their next comprehensive debug pass.
+- Review and merge the pull request.
 
 ## Verification
 
-Documentation/template-only workflow change. Verify the two debug template files and `docs/13_debugging_workflow.md` exist on the pushed branch, and verify both foundation/bootstrap instructions and repository-template `AGENTS.md` reference the debug workflow.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test-repository-bootstrap.ps1` — PASS; covers normal and missing-file flows, all seven template hashes, and existing-file actions.
+- `project doctor` — PASS in the available local clone; it still reports the deleted `AI-Workspace` folder as configured in that clone's `config/project.toml`.
+- The existing Python pytest suite was not run because pytest is unavailable in the bundled Python runtime.
 
 ## Blockers / external dependencies
 
-None for the handoff workflow itself.
+The existing Python test suite needs an environment with pytest installed. The legacy Drive setting is outside this bootstrap change and remains for a separate configuration review.
+

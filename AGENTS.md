@@ -1,14 +1,14 @@
 # プロジェクト固有の前提（初期設定）
 1. 題材に依存しない基盤を作り、Codexの実装・テスト・処理はCodex cloudで実行する。
 2. 調査・監視・定期実行はChatGPT Work Cloudを使い、PCの稼働を完了条件に含めない。
-3. 携帯とPCは指示・承認・確認の操作盤とし、GitHubをコードの正本、Google Driveを資料の正本にする。
+3. 携帯とPCは指示・承認・確認の操作盤とする。GitHubリポジトリをコード・仕様・開発手順の正本とし、Google Driveは画像・動画・Sheets・実データなどを置く補助領域とする。
 4. 完了条件は、クラウド環境で依存関係を復元し、自己診断とテストを実行できること。
 5. 実装は Python 3.12、依存関係は uv、設定は TOML、検証は pytest、実行入口はCLIを基本とする。
 6. 取得原本はGoogle Driveに保存し、クラウド作業領域の`data/raw/`は処理用コピーとして上書きしない。
 7. 認証情報をGitHubへ保存しない。保留中の題材固有処理と無関係な領域には触れない。
 8. 外部送信・公開・購入・インストール・既存原本の上書きは、実行前に利用者の確認を取る。
-9. 利用者が将来やりたいことを思いつきとして伝えた場合は、Google Driveの`AI-Workspace/00_Inbox`を正本とするアイデアメモに残す。実行依頼へ変わった時点で、`docs/11_idea_intake.md`に従ってCodex cloud、ChatGPT Work Cloud、人の操作に担当を分ける。
-10. 新しいGitHubリポジトリを作成・初期化するときは、`docs/12_new_repository_bootstrap.md` を必ず適用し、`templates/repository/` を基準に `AGENTS.md`、`docs/SPEC.md`、`docs/STATUS.md`、`docs/DEBUG_STANDARD.md`、`docs/DEBUG_MATRIX.md` を最初から作る。Workがリポジトリの中身を作成する場合も同じ。これらが既定ブランチに存在し、別PCから再開・総合デバッグできる状態になるまで初期化完了としない。
+9. 利用者が将来やりたいことを思いつきとして伝えた場合は、Google Driveの`Tottoko`にアイデアメモとして残す。実行依頼へ変わった時点で、`docs/11_idea_intake.md`に従ってCodex cloud、ChatGPT Work Cloud、人の操作に担当を分ける。
+10. 新しいGitHubリポジトリを作成・初期化するときは、`docs/12_new_repository_bootstrap.md` と `scripts/initialize-repository.ps1` を適用する。`templates/repository/` を正本に必須7ファイルを初期化し、`scripts/verify-repository-bootstrap.ps1` の成功を確認する。初期化スクリプトは既存ファイルを既定で上書きしない。Workがリポジトリの中身を作成する場合も同じ。必須7ファイルが存在し、別PCから再開・総合デバッグできる状態になるまで初期化完了としない。
 11. 利用者が「総合デバッグして」「デバッグして」などアプリ全体の品質確認を依頼した場合は、`docs/13_debugging_workflow.md` とリポジトリ内の `docs/DEBUG_STANDARD.md` / `docs/DEBUG_MATRIX.md` を適用し、仕様確認→ベースライン検証→不足ケース追加→バグ再現→最小修正→回帰確認→全体検証→記録→commit/pushまで進める。
 
 # 作業規約
