@@ -36,6 +36,21 @@ Before handing work to another PC:
 
 Never leave the only copy of important work in uncommitted local files, terminal output, or a Codex conversation.
 
+## Comprehensive debugging
+
+When the user asks for a comprehensive debug pass, an overall debug, or equivalent app-wide verification:
+
+1. read `docs/DEBUG_STANDARD.md` and `docs/DEBUG_MATRIX.md` after the specification sources;
+2. establish the current baseline by running the real project verification commands;
+3. expand `docs/DEBUG_MATRIX.md` with missing project-specific normal, error, boundary, state-transition, persistence, external-dependency, and UI cases;
+4. for reproducible bugs, add a regression test where practical and confirm it fails before the fix;
+5. apply the smallest fix that preserves the specification;
+6. rerun the targeted test, full tests, static checks, and production build as applicable;
+7. update `docs/DEBUG_MATRIX.md` and `docs/STATUS.md`;
+8. commit and push the work so the debug result is recoverable from GitHub.
+
+Do not call the comprehensive debug complete while a known Critical or High severity bug remains unresolved. Report the result under: PASS / fixed bugs / unverified items / external dependencies.
+
 ## Project-specific rules
 
 Replace this section with the project's actual implementation, product, security, and verification rules. Do not leave generic placeholders once implementation begins.

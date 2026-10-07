@@ -1,7 +1,7 @@
 # Status
 
 Status: Active cross-PC handoff entry point  
-Last updated: 2026-10-05
+Last updated: 2026-10-07
 
 This file is the canonical handoff document for this repository.
 
@@ -17,21 +17,22 @@ This file is the canonical handoff document for this repository.
 
 Update this field at the end of each meaningful development session.
 
-`main`
+`debug-standard-template-2026-10-07`
 
 ## Completed in latest handoff
 
-- Added a new-repository bootstrap standard and reusable templates so Work/Codex initializes future repositories with cross-PC handoff files from the start.
-- Added fixed `docs/SPEC.md` and `docs/STATUS.md` entry points for cross-PC Codex recovery.
-- Standardized the rule that Codex chat history is non-authoritative and handoff state must be committed and pushed.
+- Added reusable `docs/DEBUG_STANDARD.md` and `docs/DEBUG_MATRIX.md` templates for all future application repositories.
+- Added `docs/13_debugging_workflow.md` so a short request such as 「総合デバッグして」 maps to the same specification-first debug workflow.
+- Updated the repository template `AGENTS.md` so Codex performs baseline verification, scenario expansion, regression-test-first bug fixes, full re-verification, documentation, and GitHub handoff automatically.
+- Updated the new-repository bootstrap standard so debug standard/matrix files are required from repository initialization.
 
 ## Next
 
-Use `docs/12_new_repository_bootstrap.md` and `templates/repository/` whenever Work/Codex initializes a newly created repository. For ordinary work in this repository, replace this section with the concrete next task.
+Merge this standardization change. After that, every newly initialized application repository should start with the debug standard and matrix. Existing repositories without them should adopt the templates at the start of their next comprehensive debug pass.
 
 ## Verification
 
-Documentation-only workflow change. Verify the files exist on the pushed branch and that `AGENTS.md` points to them.
+Documentation/template-only workflow change. Verify the two debug template files and `docs/13_debugging_workflow.md` exist on the pushed branch, and verify both foundation/bootstrap instructions and repository-template `AGENTS.md` reference the debug workflow.
 
 ## Blockers / external dependencies
 
