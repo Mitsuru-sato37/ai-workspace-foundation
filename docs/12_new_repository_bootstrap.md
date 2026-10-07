@@ -8,11 +8,13 @@
 
 ## 初期化完了条件
 
-新規リポジトリの初期化は、少なくとも次の5ファイルが既定ブランチに存在するまで完了扱いにしない。
+新規リポジトリの初期化は、少なくとも次の7ファイルが既定ブランチに存在するまで完了扱いにしない。
 
 - `AGENTS.md`
 - `docs/SPEC.md`
 - `docs/STATUS.md`
+- `docs/DEBUG_STANDARD.md`
+- `docs/DEBUG_MATRIX.md`
 - `git-status.cmd`
 - `scripts/git-sync-status.ps1`
 
@@ -26,8 +28,10 @@
 4. `AGENTS.md` に、作業開始・終了・PC間引き継ぎのルールを残す。
 5. `docs/SPEC.md` を固定の仕様入口にする。詳細仕様が別ファイルにある場合は、重複記載せずそこへの索引にする。
 6. `docs/STATUS.md` を固定の引き継ぎ入口にする。既存の `PROGRESS.md` 等が正本ならそこへの索引にする。
-7. 実装を始める前に、上記5ファイルが既定ブランチまたは作業ブランチに存在することを確認する。
-8. 初期作業が完了したら、変更をcommit/pushし、別PCがGitHubだけを見て再開できる状態を確認する。
+7. `docs/DEBUG_STANDARD.md` を共通デバッグ基準、`docs/DEBUG_MATRIX.md` をプロジェクト固有の検証台帳として置く。実装が進んだらマトリクスの汎用行を実際の主要フロー・境界値・異常系へ更新する。
+8. test / typecheck / lint / build の実コマンドが確定したら `docs/DEBUG_MATRIX.md` に記録し、可能ならPR時に自動実行するCIを追加する。
+9. 実装を始める前に、上記7ファイルが既定ブランチまたは作業ブランチに存在することを確認する。
+10. 初期作業が完了したら、変更をcommit/pushし、別PCがGitHubだけを見て再開・総合デバッグできる状態を確認する。
 
 ## 固定の読み順
 
@@ -63,6 +67,8 @@ Codexのチャット履歴は正本にしない。
 - `templates/repository/AGENTS.md`
 - `templates/repository/docs/SPEC.md`
 - `templates/repository/docs/STATUS.md`
+- `templates/repository/docs/DEBUG_STANDARD.md`
+- `templates/repository/docs/DEBUG_MATRIX.md`
 - `templates/repository/git-status.cmd`
 - `templates/repository/scripts/git-sync-status.ps1`
 
