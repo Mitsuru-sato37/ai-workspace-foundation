@@ -129,12 +129,14 @@ Do not discard local changes merely to synchronize.
 
 ### End of session / PC handoff
 
+When the user says `引き継ぎ`, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Never merge, release, force-push, or push directly to the default branch under this authorization.
+
 Before work is considered safely handed off:
 
 1. Update the canonical handoff document referenced by `docs/STATUS.md` (or `docs/STATUS.md` itself when it is canonical).
 2. Record at least: active branch, completed work, next work, verification performed, and blockers/external dependencies.
 3. Commit all intended changes.
-4. Push the active branch to GitHub.
+4. Push the active task branch to GitHub with a normal fast-forward push.
 5. Confirm the pushed branch contains the handoff update.
 
 On another PC, recovery is: fetch -> switch to the recorded branch -> pull -> read `AGENTS.md`, `docs/SPEC.md`, and `docs/STATUS.md`.

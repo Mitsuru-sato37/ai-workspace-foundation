@@ -25,11 +25,12 @@ This file is the canonical handoff document for this repository.
 - Added a self-test covering missing and complete repositories, exact template matches, preservation, diff, and explicit overwrite.
 - Updated the bootstrap runbook and foundation instructions.
 - Updated the idea-intake procedure to use `AI-Workspace/00_Inbox` and aligned the architecture and repository guidance with the current Drive source-of-truth policy.
+- Added the `引き継ぎ` trigger to standardize end-of-chat commit, push, and pull-request handoff with protected-branch safeguards.
 - Preserved the repository-bootstrap and cross-PC handoff standards from the merged PRs.
 
 ## Next
 
-- After user approval, push this branch and open a pull request. Merge only after review.
+- When the user invokes `引き継ぎ`, push this branch and open a pull request; merge only after separate review and approval.
 
 ## Verification
 
@@ -38,5 +39,5 @@ This file is the canonical handoff document for this repository.
 
 ## Blockers / external dependencies
 
-The new branch has not been pushed. GitHub writes remain pending user approval.
+The new branch has not been pushed. The `引き継ぎ` trigger is the user's explicit authorization for a future branch push and pull-request update.
 
