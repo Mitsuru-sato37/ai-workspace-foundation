@@ -1,6 +1,6 @@
 # Status
 
-Status: Local handoff prepared; push pending user approval
+Status: Handoff in progress
 Last updated: 2026-10-24
 
 This file is the canonical handoff document for this repository.
@@ -30,7 +30,7 @@ This file is the canonical handoff document for this repository.
 
 ## Next
 
-- When the user closes the chat with `お疲れ`, push this branch and open a pull request; merge only after separate review and approval.
+- Push this branch and open a draft pull request. After creating it, record its URL and state here. Merge only after separate review and approval.
 
 ## Verification
 
@@ -39,5 +39,5 @@ This file is the canonical handoff document for this repository.
 
 ## Blockers / external dependencies
 
-The new branch has not been pushed. A chat-closing `お疲れ` is the user's explicit authorization for a branch push and pull-request update.
+The branch push and pull-request creation are in progress under the user's `お疲れ` authorization.
 
