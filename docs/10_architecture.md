@@ -15,10 +15,10 @@
 ## 役割
 
 - 携帯・PCのChatGPT/Codex画面: 指示、承認、結果確認の操作盤。
-- Google Drive `AI-Workspace`: 資料、メモ、依頼、取得原本、共有成果物の正本。
+- Google Drive `AI-Workspace`: 資料、アイデアメモ、取得原本、共有成果物の正本。
 - ChatGPT Work Cloud: 調査、監視、定期実行を行う。
 - Codex cloud: GitHubリポジトリからコードを取得し、実装、自己診断、テストを行う。
-- GitHub `Mitsuru-sato37/ai-workspace-foundation`: コード、設定、手順、変更履歴の正本。
+- GitHub `Mitsuru-sato37/ai-workspace-foundation`: コード、設定、テスト、変更履歴の正本。
 - ローカルPC: 必要なときに閲覧・編集する複製。常駐処理は持たせない。
 
 ## Google Drive構成
@@ -26,18 +26,18 @@
 ```text
 AI-Workspace/
 ├── 00_Inbox/       携帯・PCから入れる未整理の依頼と資料
-├── 10_Projects/    稼働中プロジェクトの資料
-├── 80_System/      運用ルールと System Brief
-└── 90_Archive/     終了済み資料
+└── 01_運用ルール/  AI共通のファイル管理ルール
 ```
+
+プロジェクトの資料は、既存のプロジェクト別Driveフォルダを使う。汎用フォルダを重ねて作らず、保存先の正本を案件ごとに確認する。
 
 ## 情報の流れ
 
-1. 新しい依頼、思いつき、資料を `00_Inbox` に入れる。3領域のどれに属するかを記録し、思いつきは実行を約束せず、まずアイデアメモとして保存する。
-2. 利用者が実行を望んだアイデアは `docs/11_idea_intake.md` で担当を判定し、継続案件だけ `10_Projects` に移してプロジェクトごとの正本を決める。
+1. 新しい依頼や思いつきは `00_Inbox` にアイデアメモとして入れる。3領域のどれに属するかを記録し、思いつきは実行を約束しない。
+2. 利用者が実行を望んだアイデアは `docs/11_idea_intake.md` で担当を判定し、継続案件は既存のプロジェクト別Driveフォルダを正本として使う。
 3. 実装とテストはCodex cloudのリポジトリ環境で実行し、GitHubへ履歴を残す。
 4. 調査・監視・定期実行はChatGPT Work Cloudに置き、Google DriveとGitHubの接続先から必要な情報を読む。
-5. 共有する成果物はGoogle Driveへ保存し、完了した資料を `90_Archive` に移す。
+5. 共有する成果物は用途に合う既存のGoogle Driveフォルダへ保存する。旧版の保管場所はプロジェクトごとの既存構成に従う。
 
 ## クラウド移行の完了判定
 

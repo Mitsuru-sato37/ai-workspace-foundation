@@ -1,21 +1,21 @@
 # Status
 
-Status: Active cross-PC handoff entry point  
-Last updated: 2026-10-07
+Status: Local handoff prepared; push pending user approval
+Last updated: 2026-10-24
 
 This file is the canonical handoff document for this repository.
 
 ## Current state
 
 - This repository provides shared development operations standards and reusable templates for repositories under `Mitsuru-sato37`.
-- GitHub repositories are the source of truth for code, specifications, and reproducible development state.
-- Google Drive is a supplementary area for images, videos, Sheets, and real data that should not live in GitHub. The root `Tottoko` spreadsheet is the idea ledger; it is not a folder for project files.
-- The foundation project's Google Drive integration is disabled until a current project Drive folder is configured.
+- GitHub repositories are the source of truth for code; Google Drive is the source of truth for materials and shared documents.
+- The Drive folder `AI-Workspace` contains `00_Inbox` for idea memos and `01_運用ルール` for shared operating rules.
+- The foundation project's automated Drive integration remains disabled; Drive files are handled through explicit, user-authorized operations.
 - New repository initialization uses `templates/repository/`, `scripts/initialize-repository.ps1`, and `scripts/verify-repository-bootstrap.ps1`.
 
 ## Active branch
 
-`feat/repository-bootstrap-automation`
+`codex/drive-file-organization-rules`
 
 ## Completed
 
@@ -24,20 +24,19 @@ This file is the canonical handoff document for this repository.
 - Added a required-file checker that lists missing files and exits unsuccessfully.
 - Added a self-test covering missing and complete repositories, exact template matches, preservation, diff, and explicit overwrite.
 - Updated the bootstrap runbook and foundation instructions.
-- Disabled the obsolete project-level Drive integration and cleared its deleted folder/document IDs; aligned the current idea-intake guide with the `Tottoko` spreadsheet.
+- Updated the idea-intake procedure to use `AI-Workspace/00_Inbox` and aligned the architecture and repository guidance with the current Drive source-of-truth policy.
+- Preserved the repository-bootstrap and cross-PC handoff standards from the merged PRs.
 
 ## Next
 
-- Review and merge the pull request.
+- After user approval, push this branch and open a pull request. Merge only after review.
 
 ## Verification
 
-- `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test-repository-bootstrap.ps1` — PASS; covers normal and missing-file flows, all seven template hashes, and existing-file actions.
-- `project doctor` — PASS; the Google Drive integration is disabled and reports no configured folder reference.
-- `python -m unittest discover -s tests` — PASS; six settings tests cover enabled and disabled Drive configuration.
-- The pytest runner is unavailable in the bundled Python runtime; the existing test cases were run with Python unittest.
+- The merged bootstrap PR previously passed its PowerShell self-test, project doctor, and Python unittest verification; this documentation-only change does not alter those code paths.
+- No tests were run for this documentation-only change, per user instruction. `git diff --check` is used to check patch whitespace and conflict markers.
 
 ## Blockers / external dependencies
 
-The pytest runner is unavailable in the bundled Python runtime. The Python unit tests passed through unittest discovery.
+The new branch has not been pushed. GitHub writes remain pending user approval.
 

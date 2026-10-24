@@ -4,7 +4,7 @@
 
 ## 現行運用の注記
 
-この文書は2026-09-23時点の再現記録です。以下にある `AI-Workspace`、`00_Inbox`、`80_System` とSystem Briefの作成手順は過去の記録で、現在のDrive構成には適用しません。現在のアイデア台帳はDriveルート直下のスプレッドシート `Tottoko` です。コード・仕様の正本はGitHubリポジトリです。現行手順は `README.md` と `docs/11_idea_intake.md` を参照してください。
+この文書は2026-09-23時点の再現記録です。2026-10-24に `AI-Workspace` を再作成し、`00_Inbox` と `01_運用ルール` を用意しました。過去の作成・削除手順は履歴として残しますが、現在の構成とアイデア受付手順は `README.md`、`docs/10_architecture.md`、`docs/11_idea_intake.md` を参照してください。以前の `Tottoko` 台帳は現行手順の正本ではありません。
 
 ## 初期化
 
