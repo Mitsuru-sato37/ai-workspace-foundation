@@ -1,6 +1,6 @@
 # Status
 
-Status: Draft PR #7 open; review pending
+Status: PR #7 merged
 Last updated: 2026-10-24
 
 This file is the canonical handoff document for this repository.
@@ -28,11 +28,12 @@ This file is the canonical handoff document for this repository.
 - Added the `お疲れ` chat-closing trigger to standardize end-of-chat commit, push, and pull-request handoff with protected-branch safeguards.
 - Preserved the repository-bootstrap and cross-PC handoff standards from the merged PRs.
 - The first push attempt was rejected because the remote already has a `codex` branch, which conflicts with a `codex/...` ref. Renamed the local branch to `codex-drive-file-organization-rules`; no remote branch was created by the rejected attempt.
-- Pushed commit `b677e9845055c7ec7c0318df8609f94a5831abc7` and opened draft PR #7 for review.
+- Pushed commit `b677e9845055c7ec7c0318df8609f94a5831abc7` and opened PR #7 for review.
+- PR #7 was marked ready and merged on 2026-10-24; merge commit `854a6427656d766c7de29f4f721504c047f636d1`.
 
 ## Next
 
-- Review draft PR #7: https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/7. Merge only after separate review and approval.
+- No follow-up work is currently queued.
 
 ## Verification
 
@@ -41,5 +42,5 @@ This file is the canonical handoff document for this repository.
 
 ## Blockers / external dependencies
 
-Draft PR #7 is open and not merged. The local branch should be clean after this handoff update is pushed.
+PR #7 is merged. This handoff update records the final state after the merge.
 
