@@ -15,7 +15,7 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`codex/drive-file-organization-rules`
+`codex-drive-file-organization-rules`
 
 ## Completed
 
@@ -27,6 +27,7 @@ This file is the canonical handoff document for this repository.
 - Updated the idea-intake procedure to use `AI-Workspace/00_Inbox` and aligned the architecture and repository guidance with the current Drive source-of-truth policy.
 - Added the `お疲れ` chat-closing trigger to standardize end-of-chat commit, push, and pull-request handoff with protected-branch safeguards.
 - Preserved the repository-bootstrap and cross-PC handoff standards from the merged PRs.
+- The first push attempt was rejected because the remote already has a `codex` branch, which conflicts with a `codex/...` ref. Renamed the local branch to `codex-drive-file-organization-rules`; no remote branch was created by the rejected attempt.
 
 ## Next
 
