@@ -129,7 +129,7 @@ Do not discard local changes merely to synchronize.
 
 ### End of session / PC handoff
 
-When the user says `引き継ぎ`, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Never merge, release, force-push, or push directly to the default branch under this authorization.
+When the user says `お疲れ` as a chat-closing sign-off, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. Never merge, release, force-push, or push directly to the default branch under this authorization.
 
 Before work is considered safely handed off:
 

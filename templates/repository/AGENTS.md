@@ -34,7 +34,7 @@ Before handing work to another PC:
 4. push the active task branch with a normal fast-forward push;
 5. confirm GitHub contains the handoff update.
 
-The user trigger `引き継ぎ` is explicit authorization for this closeout flow, including pushing the active task branch and creating or updating its pull request. It does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
+The user trigger `お疲れ`, when used as a chat-closing sign-off, is explicit authorization for this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. It does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
 
 Never leave the only copy of important work in uncommitted local files, terminal output, or a Codex conversation.
 
