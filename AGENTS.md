@@ -129,7 +129,11 @@ Do not discard local changes merely to synchronize.
 
 ### End of session / PC handoff
 
-When the user says `お疲れ` as a chat-closing sign-off, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. Never merge, release, force-push, or push directly to the default branch under this authorization.
+When the user says `お疲れ` as a chat-closing sign-off, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. This trigger does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
+
+After creating or updating the PR, assess whether it is ready to merge: confirm the target/base branch, no merge conflicts, required checks pass, and no unresolved review requests or blockers. If all are satisfied, report that assessment and ask the user whether to merge; do not merge before explicit confirmation. If any condition is missing or failing, state the evidence and exact blocker, then propose a concrete remediation and how to verify it. When the fix is within the authorized task, proceed with the fix and rerun the relevant check; otherwise explain the next action needed. Do not present a blocked PR as ready.
+
+After the closeout and push/PR checks are complete, ask the user every time whether the conversation may be archived. The sign-off does not authorize archiving. Keep the conversation open unless the user explicitly asks to archive it.
 
 Before work is considered safely handed off:
 
