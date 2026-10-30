@@ -36,6 +36,10 @@ Before handing work to another PC:
 
 The user trigger `お疲れ`, when used as a chat-closing sign-off, is explicit authorization for this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. It does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
 
+After creating or updating the PR, assess whether it is ready to merge: confirm the target/base branch, no merge conflicts, required checks pass, and no unresolved review requests or blockers. If all are satisfied, report that assessment and ask the user whether to merge; do not merge before explicit confirmation. If any condition is missing or failing, state the evidence and exact blocker, then propose a concrete remediation and how to verify it. When the fix is within the authorized task, proceed with the fix and rerun the relevant check; otherwise explain the next action needed. Do not present a blocked PR as ready.
+
+After the closeout and push/PR checks are complete, ask the user every time whether the conversation may be archived. The sign-off does not authorize archiving. Keep the conversation open unless the user explicitly asks to archive it.
+
 Never leave the only copy of important work in uncommitted local files, terminal output, or a Codex conversation.
 
 ## Comprehensive debugging
