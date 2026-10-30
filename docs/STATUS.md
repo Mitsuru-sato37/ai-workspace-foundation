@@ -1,6 +1,6 @@
 # Status
 
-Status: PR #9 open; merge readiness pending required-check policy confirmation
+Status: PR #9 merged
 Last updated: 2026-10-30
 
 This file is the canonical handoff document for this repository.
@@ -17,11 +17,12 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`codex-drive-file-organization-rules`
+`codex-pr9-status-correction` (follow-up handoff correction for merged PR #9)
 
 ## Completed
 
-- Opened [PR #9](https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/9) for the Drive/GitHub storage boundary and closeout merge-readiness rules.
+- Merged [PR #9](https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/9) at `005c4c7400fe6731968f6626d83e8fabc034b9d9` for the Drive/GitHub storage boundary and closeout merge-readiness rules.
+- Corrected this handoff record after PR #9 merged; it previously reflected the pre-merge state.
 - Clarified the Drive/GitHub boundary: Drive holds idea memos, research materials, and completed deliverables; GitHub holds storage rules, procedures, and linked work/resumption records.
 - Clarified closeout behavior: report merge readiness and ask before merging, or explain the concrete blocker and next step.
 - Expanded blocked-PR guidance to include evidence, a proposed fix, and a verification step; apply in-scope fixes autonomously.
@@ -41,7 +42,6 @@ This file is the canonical handoff document for this repository.
 ## Next
 
 - Review the GitHub/Drive connection permissions and verify each connector can access the intended repository or folder; this session's local fetch check could not write `.git/FETCH_HEAD`.
-- Confirm whether `main` requires status checks before merging PR #9. GitHub reports the PR is mergeable, but the PR check list and commit statuses are empty, so required-check policy could not be confirmed through the connected GitHub tools.
 - At the end of future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without that explicit instruction.
 
 ## Verification
@@ -49,9 +49,9 @@ This file is the canonical handoff document for this repository.
 - The prior merged bootstrap PR passed its PowerShell self-test, project doctor, and Python unittest verification; this documentation-only change does not alter those code paths.
 - The initial sandboxed fetch could not write `.git/FETCH_HEAD`; retrying with the required Git metadata permission succeeded. The active branch was synchronized with origin at `0/0` ahead/behind before commit.
 - No tests were run for this documentation-only change. `git diff --check` passed, and a targeted consistency scan confirmed the Drive/GitHub and merge-readiness rules are present in both the active instructions and the repository template.
-- PR #9 targets `main`, has no merge conflicts, and has no review submissions or review threads. The GitHub check diagnostics returned zero check runs and zero commit statuses; this confirms there are no reported failing checks, but does not establish whether checks are required by branch rules.
+- PR #9 targeted `main`; GitHub showed no conflicts and enabled the merge action. Although connected-tool check diagnostics returned zero check runs and zero commit statuses, GitHub accepted the merge, which was confirmed at `005c4c7400fe6731968f6626d83e8fabc034b9d9`.
 
 ## Blockers / external dependencies
 
-PR #9 is open. Before asking whether to merge, confirm whether required checks apply to `main`; if required checks exist, run/fix them and verify success. If none are required, report that evidence limitation and ask the user whether to merge.
+PR #9 is merged. No blocker remains for this change.
 
