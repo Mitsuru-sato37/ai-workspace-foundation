@@ -1,6 +1,6 @@
 # Status
 
-Status: rollout status follow-up PR in progress
+Status: idea-storage rollout complete
 Last updated: 2026-11-02
 
 This file is the canonical handoff document for this repository.
@@ -17,10 +17,10 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`codex-rollout-final-status-2026-11-02` (recording completed cross-repository rollout)
+`main` (all rollout changes and handoff updates merged)
 
 ## Current task
-Active task: complete the cross-repository idea-storage policy rollout. All seven rollout PRs are now merged and verified; update the canonical rollout record and synchronize this checkout to `main`.
+Completed: cross-repository idea-storage policy rollout. All seven repository PRs and the final handoff PR #12 are merged and verified; the local checkout is synchronized to `main`.
 
 ## Completed
 
@@ -44,7 +44,7 @@ Active task: complete the cross-repository idea-storage policy rollout. All seve
 - PR #7 was marked ready and merged on 2026-10-24; merge commit `854a6427656d766c7de29f4f721504c047f636d1`.
 
 ## Next
-- Synchronize the local checkout to `main` after the final status PR is merged.
+- No remaining work for this rollout.
 - Future work: verify GitHub/Drive connection permissions for intended repositories and folders when needed.
 - At future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without explicit instruction.
 
@@ -57,4 +57,4 @@ Active task: complete the cross-repository idea-storage policy rollout. All seve
 
 ## Blockers / external dependencies
 
-None for the completed rollout. Final status synchronization to `main` is pending this follow-up PR merge.
+No blockers for the completed rollout.
