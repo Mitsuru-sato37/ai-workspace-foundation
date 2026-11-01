@@ -23,7 +23,7 @@
 
 | Repository | Visibility | 影響文書 | 状態 | 根拠・保留 |
 | --- | --- | --- | --- | --- |
-| `Mitsuru-sato37/ai-workspace-foundation` | public | `AGENTS.md`, `templates/repository/AGENTS.md`, `docs/03_runbook.md`, `docs/10_architecture.md`, `docs/11_idea_intake.md`, `docs/README.md`, `docs/SPEC.md`, `docs/STATUS.md`, `docs/14_shared_standard_rollout.md` | 作業中 | 基準文書・配布テンプレート。現在ブランチのPRを作成する |
+| `Mitsuru-sato37/ai-workspace-foundation` | public | `AGENTS.md`, `templates/repository/AGENTS.md`, `docs/03_runbook.md`, `docs/10_architecture.md`, `docs/11_idea_intake.md`, `docs/README.md`, `docs/SPEC.md`, `docs/STATUS.md`, `docs/14_shared_standard_rollout.md` | [PR #11](https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/11) | 基準文書・配布テンプレート |
 | `Mitsuru-sato37/meshi-roulette` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #8](https://github.com/Mitsuru-sato37/meshi-roulette/pull/8) | プロジェクト固有の公開可能なアイデアだけを記録 |
 | `Mitsuru-sato37/poker-gto-trainer` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #3](https://github.com/Mitsuru-sato37/poker-gto-trainer/pull/3) | プロジェクト固有の公開可能なアイデアだけを記録 |
 | `Mitsuru-sato37/keiba-lab` | private | `AGENTS.md`, `docs/STATUS.md` | [PR #36](https://github.com/Mitsuru-sato37/keiba-lab/pull/36) | 非公開リポジトリ |
@@ -31,7 +31,7 @@
 | `Mitsuru-sato37/settlement-app` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #5](https://github.com/Mitsuru-sato37/settlement-app/pull/5) | プロジェクト固有の公開可能なアイデアだけを記録 |
 | `Mitsuru-sato37/chunichidragons-data-analysis` | public | `AGENTS.md`, `docs/STATUS.md`, `docs/repository_workflow.md`, `docs/drive_github_workflow.md`, `docs/video_idea_index.md` | [PR #1](https://github.com/Mitsuru-sato37/chunichidragons-data-analysis/pull/1) | 既存Drive企画メモは原本に触れず旧正本として保持。新規候補はリポジトリ正本へ切り替える |
 
-全6件の既存リポジトリにPRを作成した。PRがマージされるまでは反映完了ではない。中日分析リポジトリの既存Drive企画メモは非公開詳細を含む可能性があるため、Drive原本を保持し、Publicリポジトリへ本文やリンクを移していない。
+基盤を含む7件すべてにPRを作成した。PRがマージされるまでは反映完了ではない。中日分析リポジトリの既存Drive企画メモは非公開詳細を含むため、Drive原本を保持し、Publicリポジトリへ本文やリンクを移していない。
 
 ## 検証
 

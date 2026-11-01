@@ -21,7 +21,7 @@ This file is the canonical handoff document for this repository.
 
 ## Current task
 
-Active task: propagate the idea-storage policy across the repository template and all six other accessible repositories. Six project PRs are open; the foundation changes on this branch still need a PR. Preserve the existing branch commit and unrelated local changes.
+Active task: propagate the idea-storage policy across the repository template and all six other accessible repositories. Seven PRs are open; merge and verify all applicable PRs before marking the rollout complete.
 
 ## Completed
 
@@ -48,7 +48,7 @@ Active task: propagate the idea-storage policy across the repository template an
 
 - Review the GitHub/Drive connection permissions and verify each connector can access the intended repository or folder; this session's local fetch check could not write `.git/FETCH_HEAD`.
 - At the end of future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without that explicit instruction.
-- Create and review the foundation PR, then confirm each project branch reaches its intended default branch before marking the rollout complete.
+- Review merge readiness and, after authorization, merge the seven PRs in dependency order: foundation first, then the six project repositories; confirm each intended branch update.
 
 ## Verification
 
@@ -56,9 +56,9 @@ Active task: propagate the idea-storage policy across the repository template an
 - The initial sandboxed fetch could not write `.git/FETCH_HEAD`; retrying with the required Git metadata permission succeeded. The active branch was synchronized with origin at `0/0` ahead/behind before commit.
 - No tests were run for this documentation-only change. `git diff --check` passed, and a targeted consistency scan confirmed the Drive/GitHub and merge-readiness rules are present in both the active instructions and the repository template.
 - PR #9 targeted `main`; GitHub showed no conflicts and enabled the merge action. Although connected-tool check diagnostics returned zero check runs and zero commit statuses, GitHub accepted the merge, which was confirmed at `005c4c7400fe6731968f6626d83e8fabc034b9d9`.
-- This task: GitHub listed seven non-archived repositories under the account (foundation plus six projects); visibility and each applicable AGENTS/STATUS were checked. Six project PRs are open and tracked in `docs/14_shared_standard_rollout.md`. The Chuni project has one pre-existing private Drive candidate memo; its source was read, kept unchanged, and excluded from public file details pending privacy review. Five project PRs update AGENTS and STATUS; Chuni's PR also changes its project-specific candidate workflow. No tests were run for these documentation-only changes. Local `git-status.cmd` could not fetch because the sandbox denied writing `.git/FETCH_HEAD`.
+- This task: GitHub listed seven non-archived repositories under the account (foundation plus six projects); visibility and each applicable AGENTS/STATUS were checked. Seven PRs are open and tracked in `docs/14_shared_standard_rollout.md`. The Chuni project has one pre-existing private Drive candidate memo; its source was read, kept unchanged, and excluded from public file details. Five project PRs update AGENTS and STATUS; Chuni's PR also changes its project-specific candidate workflow and removes private Drive pointers. No tests were run for these documentation-only changes. `git diff --check` passed before commit `25782339db424d8ffd0251ab5988ce5e673c357a`, which was pushed via the task branch.
 
 ## Blockers / external dependencies
 
-PR #9 is merged. Local Git metadata remains unwritable in the sandbox; the foundation branch still needs normal push/PR closeout. The six project PRs also need merge before cross-repository propagation is complete.
+PR #9 is merged. The foundation PR #11 and six project PRs are open; cross-repository propagation remains incomplete until each applicable PR is merged.
 
