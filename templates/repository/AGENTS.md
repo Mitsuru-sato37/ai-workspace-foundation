@@ -61,6 +61,13 @@ Do not call the comprehensive debug complete while a known Critical or High seve
 
 Replace this section with the project's actual implementation, product, security, and verification rules. Do not leave generic placeholders once implementation begins.
 
+## Idea storage and shared standards
+
+- Store ideas specific to this project in `docs/ideas/`, one Markdown file per idea. Do not duplicate the same memo in Drive.
+- Store ideas for standards or templates shared across repositories in Google Drive `AI-Workspace/00_Inbox`. Put ideas with no known project there temporarily, then move them to the owning repository when identified.
+- Check repository visibility before adding idea details. In a public repository, record only content intended for public release. Keep private planning details in a private project-specific location and do not expose its title or link in public files.
+- When a shared standard changes, update this repository's applicable instructions and procedures, preserve project-specific rules, and record the change in the canonical handoff. The foundation rollout procedure is [Shared standard propagation](https://github.com/Mitsuru-sato37/ai-workspace-foundation/blob/main/docs/14_shared_standard_rollout.md); the idea-storage source is [Idea intake](https://github.com/Mitsuru-sato37/ai-workspace-foundation/blob/main/docs/11_idea_intake.md).
+
 
 ## Quick Git sync check
 

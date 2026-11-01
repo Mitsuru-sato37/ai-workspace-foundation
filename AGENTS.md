@@ -7,9 +7,10 @@
 6. 取得原本はGoogle Driveに保存し、クラウド作業領域の`data/raw/`は処理用コピーとして上書きしない。
 7. 認証情報をGitHubへ保存しない。保留中の題材固有処理と無関係な領域には触れない。
 8. 外部送信・公開・購入・インストール・既存原本の上書きは、実行前に利用者の確認を取る。
-9. 利用者が将来やりたいことを思いつきとして伝えた場合は、Google Driveの`AI-Workspace/00_Inbox`を正本とするアイデアメモに残す。実行依頼へ変わった時点で、`docs/11_idea_intake.md`に従ってCodex cloud、ChatGPT Work Cloud、人の操作に担当を分ける。
+9. 利用者が将来やりたいことを思いつきとして伝えた場合は、対象範囲に応じて保存する。特定のプロジェクトに属するアイデアは、そのプロジェクトのGitHubリポジトリを正本として残す。複数リポジトリに共通するルール・テンプレート等のアイデアはGoogle Driveの`AI-Workspace/00_Inbox`を正本とする。所属先未定のアイデアは共通インボックスへ仮置きし、所属先決定時に移す。実行依頼へ変わった時点で、`docs/11_idea_intake.md`に従ってCodex cloud、ChatGPT Work Cloud、人の操作に担当を分ける。
 10. 新しいGitHubリポジトリを作成・初期化するときは、`docs/12_new_repository_bootstrap.md` と `scripts/initialize-repository.ps1` を適用する。`templates/repository/` を正本に必須7ファイルを初期化し、`scripts/verify-repository-bootstrap.ps1` の成功を確認する。初期化スクリプトは既存ファイルを既定で上書きしない。Workがリポジトリの中身を作成する場合も同じ。必須7ファイルが存在し、別PCから再開・総合デバッグできる状態になるまで初期化完了としない。
 11. 利用者が「総合デバッグして」「デバッグして」などアプリ全体の品質確認を依頼した場合は、`docs/13_debugging_workflow.md` とリポジトリ内の `docs/DEBUG_STANDARD.md` / `docs/DEBUG_MATRIX.md` を適用し、仕様確認→ベースライン検証→不足ケース追加→バグ再現→最小修正→回帰確認→全体検証→記録→commit/pushまで進める。
+12. 共通標準を変更した場合は、`docs/14_shared_standard_rollout.md` に従って影響する全リポジトリを特定し、テンプレートと既存リポジトリへ反映する。プロジェクト固有の指示は保ち、公開範囲を確認し、反映状況を同文書へ記録する。対象すべてで反映・検証が終わるか、明示的な例外と残件を記録するまで完了扱いにしない。
 
 # 作業規約
 
