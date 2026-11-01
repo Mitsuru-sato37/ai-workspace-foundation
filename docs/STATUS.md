@@ -1,6 +1,6 @@
 # Status
 
-Status: PR #9 merged
+Status: rollout status follow-up PR in progress
 Last updated: 2026-11-02
 
 This file is the canonical handoff document for this repository.
@@ -17,11 +17,10 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`codex-pr9-status-correction` (follow-up handoff correction for merged PR #9)
+`codex-rollout-final-status-2026-11-02` (recording completed cross-repository rollout)
 
 ## Current task
-
-Active task: propagate the idea-storage policy across the repository template and all six other accessible repositories. Seven PRs are open; merge and verify all applicable PRs before marking the rollout complete.
+Active task: complete the cross-repository idea-storage policy rollout. All seven rollout PRs are now merged and verified; update the canonical rollout record and synchronize this checkout to `main`.
 
 ## Completed
 
@@ -45,22 +44,17 @@ Active task: propagate the idea-storage policy across the repository template an
 - PR #7 was marked ready and merged on 2026-10-24; merge commit `854a6427656d766c7de29f4f721504c047f636d1`.
 
 ## Next
-
-- Review the GitHub/Drive connection permissions and verify each connector can access the intended repository or folder; this session's local fetch check could not write `.git/FETCH_HEAD`.
-- At the end of future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without that explicit instruction.
-- Check required-check rules for all seven PR base branches; refresh the PR diagnostics. Once required checks are verified, obtain merge authorization, merge foundation first, then the six project PRs, and confirm each intended branch update.
+- Synchronize the local checkout to `main` after the final status PR is merged.
+- Future work: verify GitHub/Drive connection permissions for intended repositories and folders when needed.
+- At future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without explicit instruction.
 
 ## Verification
-
-- The prior merged bootstrap PR passed its PowerShell self-test, project doctor, and Python unittest verification; this documentation-only change does not alter those code paths.
-- The initial sandboxed fetch could not write `.git/FETCH_HEAD`; retrying with the required Git metadata permission succeeded. The active branch was synchronized with origin at `0/0` ahead/behind before commit.
-- No tests were run for this documentation-only change. `git diff --check` passed, and a targeted consistency scan confirmed the Drive/GitHub and merge-readiness rules are present in both the active instructions and the repository template.
-- PR #9 targeted `main`; GitHub showed no conflicts and enabled the merge action. Although connected-tool check diagnostics returned zero check runs and zero commit statuses, GitHub accepted the merge, which was confirmed at `005c4c7400fe6731968f6626d83e8fabc034b9d9`.
-- This task: GitHub listed seven non-archived repositories under the account (foundation plus six projects); visibility and each applicable AGENTS/STATUS were checked. Seven PRs are open and tracked in `docs/14_shared_standard_rollout.md`. The Chuni project has one pre-existing private Drive candidate memo; its source was read, kept unchanged, and excluded from public file details. Five project PRs update AGENTS and STATUS; Chuni's PR also changes its project-specific candidate workflow and removes private Drive pointers. No tests were run for these documentation-only changes. `git diff --check` passed. Foundation changes and this handoff are pushed to the active branch `codex-pr9-status-correction`; its GitHub head includes the latest handoff update.
-- PR readiness: all seven target branches match the intended base; the six project PRs report mergeable with no review submissions or unresolved review threads. The foundation PR's connected-tool mergeability is inconsistent (`get_pr_info=true`, `fetch_pr=false`), while local `git merge-tree` reports no conflict. Refresh its GitHub status before merging. `meshi-roulette` has two successful checks; the other six PRs have no check runs or statuses. Branch protection / required-check rules could not be verified with the connected tools, so merge readiness remains unverified.
-- Two automated Chuni text replacements stopped on exact-text mismatches after some branch edits had landed. Those edits were inspected; the remaining documents were updated by section boundary or current-line selection, and all five current Chuni files were re-read. The current files contain none of the checked private Drive IDs/links and none of the superseded Drive-canonical idea wording. The Drive original was not changed.
+- No tests were run for this documentation-only follow-up. The rollout PRs were confirmed closed and merged on their intended base branches; merge SHAs are recorded in `docs/14_shared_standard_rollout.md`.
+- `meshi-roulette` had two successful `test-and-build` checks. The other six PRs had no check runs or commit statuses reported by the connected GitHub tools; branch-protection required-check settings could not be inspected.
+- No submitted reviews or unresolved review threads were reported for the seven rollout PRs.
+- Chuni's current public workflow files were re-read and contained none of the checked private Drive IDs/links or superseded Drive-canonical idea wording. Its existing private Drive memo remains unchanged.
+- Earlier Chuni exact-text replacement attempts stopped on mismatches after branch edits had landed; the branch was inspected, repaired, and all five current Chuni files were re-read.
 
 ## Blockers / external dependencies
 
-PR #9 is merged. The foundation PR #11 and six project PRs are open; cross-repository propagation remains incomplete until each applicable PR is merged. Required-check settings for the seven base branches also need verification before merge.
-
+None for the completed rollout. Final status synchronization to `main` is pending this follow-up PR merge.

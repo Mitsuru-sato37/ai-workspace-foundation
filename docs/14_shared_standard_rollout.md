@@ -23,21 +23,22 @@
 
 | Repository | Visibility | 影響文書 | 状態 | 根拠・保留 |
 | --- | --- | --- | --- | --- |
-| `Mitsuru-sato37/ai-workspace-foundation` | public | `AGENTS.md`, `templates/repository/AGENTS.md`, `docs/03_runbook.md`, `docs/10_architecture.md`, `docs/11_idea_intake.md`, `docs/README.md`, `docs/SPEC.md`, `docs/STATUS.md`, `docs/14_shared_standard_rollout.md` | [PR #11](https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/11) | 基準文書・配布テンプレート |
-| `Mitsuru-sato37/meshi-roulette` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #8](https://github.com/Mitsuru-sato37/meshi-roulette/pull/8) | プロジェクト固有の公開可能なアイデアだけを記録 |
-| `Mitsuru-sato37/poker-gto-trainer` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #3](https://github.com/Mitsuru-sato37/poker-gto-trainer/pull/3) | プロジェクト固有の公開可能なアイデアだけを記録 |
-| `Mitsuru-sato37/keiba-lab` | private | `AGENTS.md`, `docs/STATUS.md` | [PR #36](https://github.com/Mitsuru-sato37/keiba-lab/pull/36) | 非公開リポジトリ |
-| `Mitsuru-sato37/simpsons-team-os` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #16](https://github.com/Mitsuru-sato37/simpsons-team-os/pull/16) | 非公開のチーム情報・企画詳細は記録しない |
-| `Mitsuru-sato37/settlement-app` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #5](https://github.com/Mitsuru-sato37/settlement-app/pull/5) | プロジェクト固有の公開可能なアイデアだけを記録 |
-| `Mitsuru-sato37/chunichidragons-data-analysis` | public | `AGENTS.md`, `docs/STATUS.md`, `docs/repository_workflow.md`, `docs/drive_github_workflow.md`, `docs/video_idea_index.md` | [PR #1](https://github.com/Mitsuru-sato37/chunichidragons-data-analysis/pull/1) | 既存Drive企画メモは原本に触れず旧正本として保持。新規候補はリポジトリ正本へ切り替える |
+| `Mitsuru-sato37/ai-workspace-foundation` | public | `AGENTS.md`, `templates/repository/AGENTS.md`, `docs/03_runbook.md`, `docs/10_architecture.md`, `docs/11_idea_intake.md`, `docs/README.md`, `docs/SPEC.md`, `docs/STATUS.md`, `docs/14_shared_standard_rollout.md` | [PR #11 merged](https://github.com/Mitsuru-sato37/ai-workspace-foundation/pull/11) (`f7e590a`) | 基準文書・配布テンプレート |
+| `Mitsuru-sato37/meshi-roulette` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #8 merged](https://github.com/Mitsuru-sato37/meshi-roulette/pull/8) (`9e08c34`) | プロジェクト固有の公開可能なアイデアだけを記録 |
+| `Mitsuru-sato37/poker-gto-trainer` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #3 merged](https://github.com/Mitsuru-sato37/poker-gto-trainer/pull/3) (`a807341`) | プロジェクト固有の公開可能なアイデアだけを記録 |
+| `Mitsuru-sato37/keiba-lab` | private | `AGENTS.md`, `docs/STATUS.md` | [PR #36 merged](https://github.com/Mitsuru-sato37/keiba-lab/pull/36) (`676dc9f`) | 非公開リポジトリ |
+| `Mitsuru-sato37/simpsons-team-os` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #16 merged](https://github.com/Mitsuru-sato37/simpsons-team-os/pull/16) (`5d485b6`) | 非公開のチーム情報・企画詳細は記録しない |
+| `Mitsuru-sato37/settlement-app` | public | `AGENTS.md`, `docs/STATUS.md` | [PR #5 merged](https://github.com/Mitsuru-sato37/settlement-app/pull/5) (`26b8f20`) | プロジェクト固有の公開可能なアイデアだけを記録 |
+| `Mitsuru-sato37/chunichidragons-data-analysis` | public | `AGENTS.md`, `docs/STATUS.md`, `docs/repository_workflow.md`, `docs/drive_github_workflow.md`, `docs/video_idea_index.md` | [PR #1 merged](https://github.com/Mitsuru-sato37/chunichidragons-data-analysis/pull/1) (`69b5bf4`) | 既存Drive企画メモは原本に触れず旧正本として保持。新規候補はリポジトリ正本へ切り替える |
 
-基盤を含む7件すべてにPRを作成した。PRがマージされるまでは反映完了ではない。中日分析リポジトリの既存Drive企画メモは非公開詳細を含むため、Drive原本を保持し、Publicリポジトリへ本文やリンクを移していない。
+基盤を含む7件すべてのPRを各記録済みbase branchへマージし、GitHub上で `merged=true` とマージSHAを確認した。中日分析リポジトリの既存Drive企画メモは非公開詳細を含むため、Drive原本は変更せず、Publicリポジトリへ本文やリンクを移していない。
 
-## PR readiness as of 2026-11-02
+## 完了確認（2026-11-02）
 
-- All seven PRs target the recorded base branches and are open. The six project PRs report `mergeable=true`; the foundation PR reports `true` through `get_pr_info` and `false` through `fetch_pr` after its latest update, while local `git merge-tree` exits 0 with no conflicts. Refresh the foundation PR status before merging. No PR has submitted reviews or unresolved review threads.
-- `meshi-roulette` reports two completed `test-and-build` checks with `success`. The other six PRs report no check runs or commit statuses.
-- The connected GitHub tools do not expose whether each base branch has required checks configured. Merge readiness is therefore unverified. Before merging, inspect the required-check rules for each base branch; if checks are required, run them and refresh the PR diagnostics. Do not mark the rollout complete while this remains unknown.
+- 7件すべてでPRのbase branchとマージ状態を確認し、レビュー投稿・未解決スレッドがないことを確認した。
+- `meshi-roulette` は `test-and-build` 2件が成功。残る6件はチェック実行結果が報告されなかった。今回の変更は文書のみのためテストは実行していない。
+- Chuniの既存Driveメモは非公開の正本としてそのまま保持。公開側の現行文書に非公開Driveのタイトル・リンク・識別子がないことを確認した。
+- PRが既定ブランチへ入ったことをもって横断反映を完了とする。ブランチ保護の必須チェック設定は接続ツールから確認できなかったため、チェックが報告されなかった6件については「チェック未報告」として記録する。
 
 ## 検証
 
