@@ -35,7 +35,7 @@
 
 ## PR readiness as of 2026-11-02
 
-- All seven PRs target the recorded base branches, are open, report `mergeable=true`, and have no submitted reviews or unresolved review threads.
+- All seven PRs target the recorded base branches and are open. The six project PRs report `mergeable=true`; the foundation PR reports `true` through `get_pr_info` and `false` through `fetch_pr` after its latest update, while local `git merge-tree` exits 0 with no conflicts. Refresh the foundation PR status before merging. No PR has submitted reviews or unresolved review threads.
 - `meshi-roulette` reports two completed `test-and-build` checks with `success`. The other six PRs report no check runs or commit statuses.
 - The connected GitHub tools do not expose whether each base branch has required checks configured. Merge readiness is therefore unverified. Before merging, inspect the required-check rules for each base branch; if checks are required, run them and refresh the PR diagnostics. Do not mark the rollout complete while this remains unknown.
 
