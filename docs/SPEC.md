@@ -12,6 +12,7 @@ Read these together:
 4. `docs/10_architecture.md` — current cloud-first architecture and source-of-truth boundaries.
 5. `docs/11_idea_intake.md` — idea intake and execution-routing rules.
 6. `docs/03_runbook.md` — setup and verification history.
+7. `docs/14_shared_standard_rollout.md` — propagation and verification of shared standards across templates and existing repositories.
 
 Files marked as held/historical by `docs/README.md` do not override current active documents.
 
