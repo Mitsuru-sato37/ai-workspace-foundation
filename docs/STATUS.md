@@ -48,7 +48,7 @@ Active task: propagate the idea-storage policy across the repository template an
 
 - Review the GitHub/Drive connection permissions and verify each connector can access the intended repository or folder; this session's local fetch check could not write `.git/FETCH_HEAD`.
 - At the end of future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without that explicit instruction.
-- Review merge readiness and, after authorization, merge the seven PRs in dependency order: foundation first, then the six project repositories; confirm each intended branch update.
+- Check required-check rules for all seven PR base branches; refresh the PR diagnostics. Once required checks are verified, obtain merge authorization, merge foundation first, then the six project PRs, and confirm each intended branch update.
 
 ## Verification
 
@@ -57,8 +57,9 @@ Active task: propagate the idea-storage policy across the repository template an
 - No tests were run for this documentation-only change. `git diff --check` passed, and a targeted consistency scan confirmed the Drive/GitHub and merge-readiness rules are present in both the active instructions and the repository template.
 - PR #9 targeted `main`; GitHub showed no conflicts and enabled the merge action. Although connected-tool check diagnostics returned zero check runs and zero commit statuses, GitHub accepted the merge, which was confirmed at `005c4c7400fe6731968f6626d83e8fabc034b9d9`.
 - This task: GitHub listed seven non-archived repositories under the account (foundation plus six projects); visibility and each applicable AGENTS/STATUS were checked. Seven PRs are open and tracked in `docs/14_shared_standard_rollout.md`. The Chuni project has one pre-existing private Drive candidate memo; its source was read, kept unchanged, and excluded from public file details. Five project PRs update AGENTS and STATUS; Chuni's PR also changes its project-specific candidate workflow and removes private Drive pointers. No tests were run for these documentation-only changes. `git diff --check` passed before commit `25782339db424d8ffd0251ab5988ce5e673c357a`, which was pushed via the task branch.
+- PR readiness: all seven target branches match the intended base and currently report mergeable with no review submissions or unresolved review threads. `meshi-roulette` has two successful checks; the other six PRs have no check runs or statuses. Branch protection / required-check rules could not be verified with the connected tools, so merge readiness remains unverified.
 
 ## Blockers / external dependencies
 
-PR #9 is merged. The foundation PR #11 and six project PRs are open; cross-repository propagation remains incomplete until each applicable PR is merged.
+PR #9 is merged. The foundation PR #11 and six project PRs are open; cross-repository propagation remains incomplete until each applicable PR is merged. Required-check settings for the seven base branches also need verification before merge.
 

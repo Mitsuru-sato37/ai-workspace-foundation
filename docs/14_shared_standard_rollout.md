@@ -33,6 +33,12 @@
 
 基盤を含む7件すべてにPRを作成した。PRがマージされるまでは反映完了ではない。中日分析リポジトリの既存Drive企画メモは非公開詳細を含むため、Drive原本を保持し、Publicリポジトリへ本文やリンクを移していない。
 
+## PR readiness as of 2026-11-02
+
+- All seven PRs target the recorded base branches, are open, report `mergeable=true`, and have no submitted reviews or unresolved review threads.
+- `meshi-roulette` reports two completed `test-and-build` checks with `success`. The other six PRs report no check runs or commit statuses.
+- The connected GitHub tools do not expose whether each base branch has required checks configured. Merge readiness is therefore unverified. Before merging, inspect the required-check rules for each base branch; if checks are required, run them and refresh the PR diagnostics. Do not mark the rollout complete while this remains unknown.
+
 ## 検証
 
 - 反映対象ごとに差分を読み、共通標準が含まれ、プロジェクト固有のルールが残っていることを確認する。
