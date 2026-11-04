@@ -114,10 +114,10 @@ Codex conversation history is not a source of truth. Durable requirements, decis
 
 ### Start of session
 
-1. Run `git status` and preserve any unrelated local work.
-2. Run `git fetch origin`.
-3. Read `docs/STATUS.md` and resume the active branch recorded by its canonical handoff document when one exists; otherwise synchronize `main`.
-4. Pull with `git pull --ff-only`.
+1. Run `git status` and preserve any unrelated local work. On Windows, run `./git-status.cmd` as the quick sync check; if it fails, report the failure and continue with direct Git commands where possible.
+2. Run `git fetch origin --prune` so the local remote-tracking refs include updates from all remote branches. `fetch` updates the local view of GitHub; it does not merge another branch into the current branch.
+3. Read `docs/STATUS.md` and the canonical handoff it names. Resume its active task branch when one is recorded; otherwise use `main`. If another branch contains relevant newer work, inspect that branch directly (or in a separate worktree) before deciding whether it belongs in the active task. Do not assume the current branch is the only source of updates.
+4. Preserve local changes before switching branches. Switch to the selected branch, then run `git pull --ff-only` to bring that branch up to date. Do not merge unrelated branches just to inspect their contents.
 5. Read the specification/status sources before changing code.
 
 Do not discard local changes merely to synchronize.
@@ -130,7 +130,7 @@ Do not discard local changes merely to synchronize.
 
 ### End of session / PC handoff
 
-When the user says `お疲れ` as a chat-closing sign-off, treat it as explicit authorization to run this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. This trigger does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
+When the user says `お疲れ` as a chat-closing sign-off, first check whether `commit -> push -> PR create/update` is complete. Treat the sign-off as explicit authorization to complete any missing steps for the current task, including pushing the active task branch and creating or updating its pull request; do not pause to ask whether to do those steps. Do not trigger while the user is discussing the keyword itself. This trigger does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
 
 After creating or updating the PR, assess whether it is ready to merge: confirm the target/base branch, no merge conflicts, required checks pass, and no unresolved review requests or blockers. If all are satisfied, report that assessment and ask the user whether to merge; do not merge before explicit confirmation. If any condition is missing or failing, state the evidence and exact blocker, then propose a concrete remediation and how to verify it. When the fix is within the authorized task, proceed with the fix and rerun the relevant check; otherwise explain the next action needed. Do not present a blocked PR as ready.
 
@@ -143,6 +143,8 @@ Before work is considered safely handed off:
 3. Commit all intended changes.
 4. Push the active task branch to GitHub with a normal fast-forward push.
 5. Confirm the pushed branch contains the handoff update.
+
+At closeout, explicitly verify the sequence `commit -> push -> PR create/update`. Stage and commit only the current task's intended changes, preserving unrelated work. Confirm the commit is on the remote task branch, then confirm the PR's base/head and current state. If a step is already complete, verify it instead of repeating it. Do not report handoff complete while a required step is missing.
 
 On another PC, recovery is: fetch -> switch to the recorded branch -> pull -> read `AGENTS.md`, `docs/SPEC.md`, and `docs/STATUS.md`.
 
