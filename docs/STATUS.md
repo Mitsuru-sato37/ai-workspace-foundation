@@ -17,7 +17,7 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`codex-cross-pc-closeout-confirmation` (task branch; commit `199cd6c`)
+`codex-cross-pc-closeout-confirmation` (PR #14 open; task commits `199cd6c`, `bdbeb9b`)
 
 ## Current task
 Clarify that new sessions inspect the latest relevant remote branch before work, and that `お疲れ` first checks whether commit -> push -> PR create/update is complete, then completes missing steps for the current task. Merge remains a separate step requiring explicit user confirmation.
@@ -45,7 +45,7 @@ Clarify that new sessions inspect the latest relevant remote branch before work,
 
 ## Next
 - Complete the shared-standard impact review required by `docs/14_shared_standard_rollout.md`; this task branch currently updates only this repository and the new-repository template.
-- After review, push this task branch and create/update a PR when the user invokes `お疲れ`.
+- PR #14 targets `main` and is open. The branch has been pushed; review/check readiness remains to be confirmed.
 - At future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without explicit instruction.
 
 ## Verification
@@ -53,6 +53,8 @@ Clarify that new sessions inspect the latest relevant remote branch before work,
 - `./git-status.cmd` was attempted; its fetch failed with `Permission denied` opening `.git/FETCH_HEAD`, so remote freshness was not established in this session.
 - `git diff --check` passed, and both instruction files contain the explicit check-then-complete wording. No tests were run for this instruction-only change.
 - The initial push of `codex/cross-pc-closeout-confirmation` was rejected because the remote already has a top-level `codex` ref; no remote task branch was created. The local branch was renamed to `codex-cross-pc-closeout-confirmation` to avoid that namespace conflict.
+- Pushed `codex-cross-pc-closeout-confirmation`; remote head matched local commit `bdbeb9b898db362afa2d0883dc705abea5a5fcbf`. Opened PR #14 to `main`.
+- PR #14 was open and reported mergeable with no submitted reviews, no inline review threads, and no commit status checks reported. Required-check configuration/status was not confirmed.
 - `meshi-roulette` had two successful `test-and-build` checks. The other six PRs had no check runs or commit statuses reported by the connected GitHub tools; branch-protection required-check settings could not be inspected.
 - No submitted reviews or unresolved review threads were reported for the seven rollout PRs.
 - Chuni's current public workflow files were re-read and contained none of the checked private Drive IDs/links or superseded Drive-canonical idea wording. Its existing private Drive memo remains unchanged.
