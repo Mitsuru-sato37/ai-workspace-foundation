@@ -19,10 +19,10 @@ At the start of work:
 
 ```bash
 git status
-git fetch origin
+git fetch origin --prune
 ```
 
-Preserve unrelated local changes. Read `docs/STATUS.md`, switch to the recorded active branch when appropriate, and pull with `git pull --ff-only`.
+Preserve unrelated local changes. Read `docs/STATUS.md` and its canonical handoff, then resume the recorded active branch when one exists; otherwise use `main`. If another remote branch may contain relevant newer work, inspect its remote-tracking ref (or open it in a separate worktree) before deciding whether to integrate it. Fetching lets you inspect branch contents without merging them. Switch to the selected branch and pull it with `git pull --ff-only`.
 
 For a new coherent task, use a dedicated branch when appropriate.
 
@@ -34,7 +34,9 @@ Before handing work to another PC:
 4. push the active task branch with a normal fast-forward push;
 5. confirm GitHub contains the handoff update.
 
-The user trigger `お疲れ`, when used as a chat-closing sign-off, is explicit authorization for this closeout flow, including pushing the active task branch and creating or updating its pull request. Do not trigger while the user is discussing the keyword itself. It does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
+At `お疲れ` closeout, verify the sequence `commit -> push -> PR create/update` explicitly. Commit only the current task's intended changes and preserve unrelated work. Confirm the commit is on the remote task branch, then verify the PR base/head and state. If any step is already complete, verify it instead of repeating it. Do not report handoff complete while a required step is missing.
+
+When the user says `お疲れ` as a chat-closing sign-off, first check whether `commit -> push -> PR create/update` is complete. Treat the sign-off as explicit authorization to complete any missing steps for the current task, including pushing the active task branch and creating or updating its pull request; do not pause to ask whether to do those steps. Do not trigger while the user is discussing the keyword itself. It does not authorize merging, releasing, force-pushing, or pushing directly to the default branch.
 
 After creating or updating the PR, assess whether it is ready to merge: confirm the target/base branch, no merge conflicts, required checks pass, and no unresolved review requests or blockers. If all are satisfied, report that assessment and ask the user whether to merge; do not merge before explicit confirmation. If any condition is missing or failing, state the evidence and exact blocker, then propose a concrete remediation and how to verify it. When the fix is within the authorized task, proceed with the fix and rerun the relevant check; otherwise explain the next action needed. Do not present a blocked PR as ready.
 

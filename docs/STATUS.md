@@ -1,7 +1,7 @@
 # Status
 
-Status: idea-storage rollout complete
-Last updated: 2026-11-02
+Status: cross-PC workflow clarification in progress
+Last updated: 2026-11-04
 
 This file is the canonical handoff document for this repository.
 
@@ -17,10 +17,10 @@ This file is the canonical handoff document for this repository.
 
 ## Active branch
 
-`main` (all rollout changes and handoff updates merged)
+`codex-cross-pc-closeout-confirmation` (PR #14 open; task commits `199cd6c`, `bdbeb9b`)
 
 ## Current task
-Completed: cross-repository idea-storage policy rollout. All seven repository PRs and the final handoff PR #12 are merged and verified; the local checkout is synchronized to `main`.
+Clarify that new sessions inspect the latest relevant remote branch before work, and that `お疲れ` first checks whether commit -> push -> PR create/update is complete, then completes missing steps for the current task. Merge remains a separate step requiring explicit user confirmation.
 
 ## Completed
 
@@ -44,12 +44,17 @@ Completed: cross-repository idea-storage policy rollout. All seven repository PR
 - PR #7 was marked ready and merged on 2026-10-24; merge commit `854a6427656d766c7de29f4f721504c047f636d1`.
 
 ## Next
-- No remaining work for this rollout.
-- Future work: verify GitHub/Drive connection permissions for intended repositories and folders when needed.
+- Complete the shared-standard impact review required by `docs/14_shared_standard_rollout.md`; this task branch currently updates only this repository and the new-repository template.
+- PR #14 targets `main` and is open. The branch has been pushed; review/check readiness remains to be confirmed.
 - At future `お疲れ` closeouts, ask whether the user wants the conversation archived; do not archive without explicit instruction.
 
 ## Verification
-- No tests were run for this documentation-only follow-up. The rollout PRs were confirmed closed and merged on their intended base branches; merge SHAs are recorded in `docs/14_shared_standard_rollout.md`.
+- `git status --short --branch` showed `main...origin/main` before edits and no pre-existing working-tree changes.
+- `./git-status.cmd` was attempted; its fetch failed with `Permission denied` opening `.git/FETCH_HEAD`, so remote freshness was not established in this session.
+- `git diff --check` passed, and both instruction files contain the explicit check-then-complete wording. No tests were run for this instruction-only change.
+- The initial push of `codex/cross-pc-closeout-confirmation` was rejected because the remote already has a top-level `codex` ref; no remote task branch was created. The local branch was renamed to `codex-cross-pc-closeout-confirmation` to avoid that namespace conflict.
+- Pushed `codex-cross-pc-closeout-confirmation`; remote head matched local commit `bdbeb9b898db362afa2d0883dc705abea5a5fcbf`. Opened PR #14 to `main`.
+- PR #14 was open and reported mergeable with no submitted reviews, no inline review threads, and no commit status checks reported. Required-check configuration/status was not confirmed.
 - `meshi-roulette` had two successful `test-and-build` checks. The other six PRs had no check runs or commit statuses reported by the connected GitHub tools; branch-protection required-check settings could not be inspected.
 - No submitted reviews or unresolved review threads were reported for the seven rollout PRs.
 - Chuni's current public workflow files were re-read and contained none of the checked private Drive IDs/links or superseded Drive-canonical idea wording. Its existing private Drive memo remains unchanged.
@@ -57,4 +62,4 @@ Completed: cross-repository idea-storage policy rollout. All seven repository PR
 
 ## Blockers / external dependencies
 
-No blockers for the completed rollout.
+The fetch failure prevents confirming whether GitHub has newer commits. The standard rollout scope across existing repositories is also not yet reviewed.
